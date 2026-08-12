@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E1B24">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Морозилка">
+<title>Морозилка — каталог напівфабрикатів</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Commissioner:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --frost:#E7EDF1;
+  --card:#FFFFFF;
+  --ink:#0E1B24;
+  --ink-2:#33495A;
+  --muted:#6B8195;
+  --line:#D2DEE6;
+  --line-soft:#E4EBF0;
+  --gb:#C0402A;
+  --su:#186354;
+  --cold:#0B5A82;
+  --warn:#8A6A1F;
+  --r:14px;
+  --pad:16px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--frost);
+  color:var(--ink);
+  font-family:"Commissioner",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:15px;line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(28px + env(safe-area-inset-bottom));
+}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+
+/* ── шапка ───────────────────────────────── */
+.top{
+  background:var(--ink);color:#EDF3F7;
+  padding:calc(14px + env(safe-area-inset-top)) var(--pad) 14px;
+}
+.wordmark{
+  font-family:"Unbounded",sans-serif;font-weight:700;
+  font-size:19px;letter-spacing:-.02em;margin:0;
+}
+.wordmark span{color:#5FA9CE}
+.sub{
+  font-family:"JetBrains Mono",monospace;font-size:11px;
+  color:#8FA9BB;margin-top:3px;letter-spacing:.02em;
+}
+
+/* ── панель фільтрів ─────────────────────── */
+.controls{
+  position:sticky;top:44px;z-index:20;
+  background:rgba(231,237,241,.94);
+  backdrop-filter:saturate(180%) blur(12px);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--line);
+  padding:10px var(--pad) 8px;
+}
+.searchrow{display:flex;gap:8px;align-items:center}
+.search{
+  flex:1;min-width:0;appearance:none;
+  border:1px solid var(--line);border-radius:10px;
+  background:var(--card);color:var(--ink);
+  padding:9px 12px;font:inherit;font-size:15px;
+}
+.search:focus{outline:2px solid var(--cold);outline-offset:-1px;border-color:transparent}
+.search::placeholder{color:var(--muted)}
+.sortbtn{
+  flex:none;border:1px solid var(--line);border-radius:10px;
+  background:var(--card);color:var(--ink-2);
+  padding:9px 11px;font-family:"JetBrains Mono",monospace;font-size:12px;
+  cursor:pointer;
+}
+.sortbtn:focus-visible{outline:2px solid var(--cold);outline-offset:2px}
+
+.chipwrap{position:relative}
+.chipwrap::after{
+  content:"";position:absolute;right:0;top:0;bottom:2px;width:28px;
+  background:linear-gradient(90deg,transparent,rgba(231,237,241,.96));
+  pointer-events:none;
+}
+.chiprow{
+  display:flex;gap:6px;overflow-x:auto;margin-top:8px;
+  scrollbar-width:none;padding-bottom:2px;
+}
+.chiprow::-webkit-scrollbar{display:none}
+.chip{
+  flex:none;border:1px solid var(--line);border-radius:100px;
+  background:var(--card);color:var(--ink-2);
+  padding:6px 12px;font-size:13px;font-weight:500;cursor:pointer;
+  white-space:nowrap;
+}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip.gb[aria-pressed="true"]{background:var(--gb);border-color:var(--gb)}
+.chip.su[aria-pressed="true"]{background:var(--su);border-color:var(--su)}
+.chip.fav[aria-pressed="true"]{background:var(--cold);border-color:var(--cold)}
+.chip:focus-visible{outline:2px solid var(--cold);outline-offset:2px}
+.chip .n{font-family:"JetBrains Mono",monospace;font-size:11px;opacity:.6;margin-left:5px}
+
+.tally{
+  font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);
+  margin-top:8px;display:flex;justify-content:space-between;gap:10px;
+}
+.tally b{font-weight:500;color:var(--ink-2)}
+
+/* ── сітка ───────────────────────────────── */
+.grid{padding:12px var(--pad) 0;display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr;gap:12px}}
+@media(min-width:1000px){.grid{grid-template-columns:1fr 1fr 1fr;max-width:1180px;margin:0 auto}}
+
+.card{
+  position:relative;background:var(--card);border-radius:var(--r);
+  border:1px solid var(--line-soft);
+  padding:12px 12px 0 15px;overflow:hidden;cursor:pointer;
+  display:flex;flex-direction:column;
+}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px}
+.card.gb::before{background:var(--gb)}
+.card.su::before{background:var(--su)}
+.card:focus-visible{outline:2px solid var(--cold);outline-offset:2px}
+@media(hover:hover){.card:hover{border-color:var(--line)}}
+
+.chead{display:flex;align-items:flex-start;gap:8px}
+.cthumb{
+  width:calc(100% + 27px);margin:-12px -12px 10px -15px;aspect-ratio:16/10;
+  overflow:hidden;background:var(--frost);
+}
+.cthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.badge{
+  flex:none;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;
+  padding:2px 5px;border-radius:4px;letter-spacing:.04em;margin-top:2px;
+}
+.badge.gb{background:#F7E4E0;color:var(--gb)}
+.badge.su{background:#DFEDE9;color:var(--su)}
+.cname{flex:1;font-weight:600;font-size:15px;line-height:1.3;margin:0;letter-spacing:-.01em}
+.heart{
+  flex:none;border:0;background:none;padding:0 0 0 4px;margin:-2px -2px 0 0;
+  font-size:17px;line-height:1;cursor:pointer;color:var(--line);
+}
+.heart[aria-pressed="true"]{color:var(--gb)}
+.heart:focus-visible{outline:2px solid var(--cold);outline-offset:2px;border-radius:4px}
+
+.pack{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-top:5px}
+
+.price{display:flex;align-items:baseline;gap:7px;margin-top:9px}
+.price .big{font-family:"Unbounded",sans-serif;font-weight:500;font-size:25px;letter-spacing:-.03em}
+.price .cur{font-size:15px;font-weight:500;color:var(--ink-2)}
+.price .per{font-size:11.5px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+
+/* ── етикетка (підпис знизу картки) ──────── */
+.label{
+  margin:11px -12px 0 -15px;padding:8px 12px 9px 15px;
+  border-top:1px solid var(--line-soft);background:#F7FAFC;
+  font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-2);
+  margin-top:auto;
+}
+.label .row{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.macro{display:flex;gap:9px}
+.macro i{font-style:normal}
+.macro i b{font-weight:700;color:var(--ink)}
+.bar{display:flex;height:3px;border-radius:2px;overflow:hidden;margin-top:6px;background:var(--line-soft)}
+.bar span{display:block;height:100%}
+.bar .p{background:#1B6E5A}
+.bar .f{background:#C89A2B}
+.bar .c{background:#4E86A8}
+.nodata{
+  color:var(--warn);border-bottom:1px dashed currentColor;
+  padding-bottom:1px;cursor:help;
+}
+
+.empty{
+  padding:44px 20px;text-align:center;color:var(--muted);
+  grid-column:1/-1;
+}
+.empty b{display:block;color:var(--ink);font-size:16px;margin-bottom:6px}
+
+/* ── картка деталей ──────────────────────── */
+.scrim{
+  position:fixed;inset:0;background:rgba(14,27,36,.5);z-index:40;
+  opacity:0;pointer-events:none;transition:opacity .18s;
+}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  background:var(--card);border-radius:18px 18px 0 0;
+  max-height:88vh;overflow-y:auto;
+  padding:0 var(--pad) calc(24px + env(safe-area-inset-bottom));
+  transform:translateY(101%);transition:transform .24s cubic-bezier(.32,.72,0,1);
+  box-shadow:0 -8px 40px rgba(14,27,36,.22);
+}
+.sheet.on{transform:translateY(0)}
+@media(min-width:700px){
+  .sheet{left:50%;right:auto;bottom:auto;top:50%;width:520px;max-height:82vh;
+    border-radius:16px;transform:translate(-50%,-46%) scale(.97);opacity:0;}
+  .sheet.on{transform:translate(-50%,-50%) scale(1);opacity:1}
+}
+.grab{width:36px;height:4px;border-radius:2px;background:var(--line);margin:9px auto 4px}
+@media(min-width:700px){.grab{display:none}}
+.sthumb{
+  width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;
+  margin-top:2px;background:var(--frost);
+}
+.sthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.shead{position:sticky;top:0;z-index:1;background:var(--card);padding:8px 0 12px;border-bottom:1px solid var(--line-soft)}
+.stitle{font-size:19px;font-weight:700;margin:6px 0 0;letter-spacing:-.02em;line-height:1.25}
+.sclose{
+  position:absolute;right:12px;top:12px;z-index:2;width:30px;height:30px;border-radius:50%;
+  border:0;background:var(--frost);color:var(--ink-2);font-size:16px;cursor:pointer;line-height:1;
+}
+.sclose:focus-visible{outline:2px solid var(--cold);outline-offset:2px}
+
+.facts{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--line-soft);border:1px solid var(--line-soft);
+  border-radius:10px;overflow:hidden;margin-top:14px;
+}
+.fact{background:var(--card);padding:9px 11px}
+.fact dt{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+.fact dd{margin:2px 0 0;font-weight:600;font-size:15px;font-variant-numeric:tabular-nums}
+
+.nutri{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+.nutri caption{
+  text-align:left;font-family:"JetBrains Mono",monospace;font-size:10.5px;
+  color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;
+}
+.nutri th,.nutri td{padding:6px 0;border-bottom:1px solid var(--line-soft);text-align:right}
+.nutri th{text-align:left;font-weight:500;color:var(--ink-2)}
+.nutri td{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+.nutri tr:last-child th,.nutri tr:last-child td{border-bottom:0}
+.nutri .hi td,.nutri .hi th{font-weight:700;color:var(--ink)}
+
+.sec{margin-top:16px}
+.sec h4{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.05em;margin:0 0 5px;font-weight:500;
+}
+.sec p{margin:0;font-size:14px;line-height:1.5;color:var(--ink-2)}
+
+.note{
+  margin-top:14px;padding:9px 11px;border-radius:9px;
+  background:#FBF4E3;border:1px solid #EBDCB8;color:#6E5518;font-size:13px;line-height:1.45;
+}
+.buy{
+  display:block;margin-top:18px;text-align:center;text-decoration:none;
+  background:var(--ink);color:#fff;border-radius:11px;padding:13px;
+  font-weight:600;font-size:15px;
+}
+.buy.gb{background:var(--gb)}
+.buy.su{background:var(--su)}
+.buy:focus-visible{outline:2px solid var(--cold);outline-offset:2px}
+.terms{font-size:11.5px;color:var(--muted);margin:8px 0 0;text-align:center;line-height:1.4}
+
+.foot{
+  padding:26px var(--pad) 8px;text-align:center;
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--muted);line-height:1.6;
+}
+
+/* ── вкладки ─────────────────────────────── */
+.tabs{
+  display:flex;position:sticky;top:0;z-index:22;
+  background:var(--ink);padding:0 var(--pad);
+}
+.tab{
+  flex:1;border:0;background:none;color:#8FA9BB;
+  font:inherit;font-weight:600;font-size:14px;
+  padding:12px 4px 11px;cursor:pointer;
+  border-bottom:2px solid transparent;
+}
+.tab[aria-selected="true"]{color:#fff;border-bottom-color:var(--cold)}
+.tab:focus-visible{outline:2px solid var(--cold);outline-offset:-2px}
+.tabn{font-family:"JetBrains Mono",monospace;font-size:11px;color:#5FA9CE;margin-left:4px}
+
+/* ── морозилка (комора) ──────────────────── */
+.roombar{
+  padding:11px var(--pad);font-size:13px;color:var(--ink-2);
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  background:rgba(231,237,241,.94);border-bottom:1px solid var(--line);
+}
+.roombar b{font-family:"JetBrains Mono",monospace;font-weight:700}
+.linklike{
+  border:0;background:none;color:var(--cold);font:inherit;font-weight:600;
+  padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px;
+}
+.linklike:focus-visible{outline:2px solid var(--cold);outline-offset:2px}
+
+#pantryList{padding:10px 0 8px}
+.pantry-row{
+  background:var(--card);
+  border:1px solid var(--line-soft);border-left:4px solid var(--line);
+  border-radius:12px;padding:12px 13px;margin:0 var(--pad) 8px;
+}
+.pantry-row.gb{border-left-color:var(--gb)}
+.pantry-row.su{border-left-color:var(--su)}
+.prow-head{display:flex;align-items:flex-start;gap:8px}
+.pbadge{flex:none;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;color:var(--muted);margin-top:2px}
+.pname{flex:1;font-weight:600;font-size:14.5px;line-height:1.32}
+.pgrams{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);margin-top:6px}
+.pgrams.low{color:#B4471F;font-weight:700}
+.pactions{display:flex;gap:6px;margin-top:10px}
+.pbtn{
+  flex:1;border:1px solid var(--line);background:var(--frost);color:var(--ink-2);
+  border-radius:8px;padding:8px 6px;font-size:12px;font-weight:600;cursor:pointer;
+  white-space:nowrap;font-family:inherit;
+}
+.pbtn:focus-visible{outline:2px solid var(--cold);outline-offset:1px}
+.pbtn.del{flex:none;width:38px;color:#B4471F;border-color:#EBD3C8;background:#FBF0EA}
+
+.addpantry{
+  display:block;width:100%;margin-top:10px;text-align:center;
+  background:var(--frost);color:var(--ink);border:1px solid var(--line);
+  border-radius:11px;padding:12px;font-weight:600;font-size:14.5px;cursor:pointer;font-family:inherit;
+}
+.addpantry:focus-visible{outline:2px solid var(--cold);outline-offset:2px}
+.addpantry[disabled]{opacity:.7}
+
+/* ── тиждень ─────────────────────────────── */
+.weeknav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px var(--pad) 4px;
+}
+.weeklabel{font-weight:600;font-size:15px}
+.wnbtn{
+  border:1px solid var(--line);background:var(--card);color:var(--ink-2);
+  width:34px;height:34px;border-radius:9px;font-size:18px;cursor:pointer;line-height:1;font-family:inherit;
+}
+.wnbtn:focus-visible{outline:2px solid var(--cold);outline-offset:1px}
+
+.daychip{display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 14px;line-height:1.15;font-size:11px}
+.daychip .daynum{font-family:"JetBrains Mono",monospace;font-size:15px;font-weight:700}
+.daychip.today{border-color:var(--cold);border-width:1.5px}
+.daychip.today:not([aria-pressed="true"]) .daynum{color:var(--cold)}
+
+#dayContent{padding:6px var(--pad) 24px}
+.mealblock{margin-top:16px}
+.mealblock:first-child{margin-top:4px}
+.mealhead{
+  font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;
+}
+.mealrow{
+  display:flex;align-items:center;gap:9px;background:var(--card);
+  border:1px solid var(--line-soft);border-radius:10px;padding:9px 10px;margin-bottom:6px;
+}
+.eatbtn{border:0;background:none;font-size:17px;padding:0;cursor:pointer;color:var(--ink-2);line-height:1}
+.eatbtn:focus-visible{outline:2px solid var(--cold);outline-offset:2px}
+.mealname{flex:1;font-size:14px;font-weight:500}
+.mealname.done{color:var(--muted);text-decoration:line-through}
+.mealdel{border:0;background:none;color:var(--muted);font-size:13px;padding:2px 4px;cursor:pointer;font-family:inherit}
+.addmeal{
+  width:100%;border:1px dashed var(--line);background:none;color:var(--cold);
+  border-radius:10px;padding:9px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;
+}
+.daytotal{
+  margin-top:18px;padding:12px 13px;background:var(--ink);color:#EDF3F7;
+  border-radius:11px;font-size:13.5px;
+}
+.daytotal b{font-family:"JetBrains Mono",monospace;font-size:16px;color:#fff}
+
+/* сегменти «з морозилки / гарнір» у нижній картці */
+.segrow{display:flex;gap:6px;margin-top:14px}
+.segbtn{
+  flex:1;border:1px solid var(--line);background:var(--card);color:var(--ink-2);
+  border-radius:9px;padding:9px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;
+}
+.segbtn.active{background:var(--ink);border-color:var(--ink);color:#fff}
+
+.hint{color:var(--muted);font-size:13.5px;padding:16px 4px;text-align:center}
+.pickrow{border:1px solid var(--line-soft);border-radius:10px;padding:10px 11px;margin-top:8px}
+.pickname{font-weight:600;font-size:14px}
+.pickrem{font-weight:400;color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:11.5px}
+.pickqty{display:flex;align-items:center;gap:10px;margin-top:8px}
+.qbtn{
+  border:1px solid var(--line);background:var(--frost);color:var(--ink);
+  width:30px;height:30px;border-radius:8px;font-size:16px;cursor:pointer;line-height:1;font-family:inherit;flex:none;
+}
+.qval{flex:1;text-align:center;font-size:13px;color:var(--ink-2)}
+.qval b{font-family:"JetBrains Mono",monospace;color:var(--ink)}
+.qadd{
+  display:block;width:100%;margin-top:8px;text-align:center;
+  border:0;background:var(--cold);color:#fff;border-radius:8px;
+  padding:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;
+}
+
+.newside{
+  width:100%;margin-top:10px;border:1px dashed var(--line);background:none;color:var(--cold);
+  border-radius:9px;padding:9px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;
+}
+.sideform{margin-top:10px;padding:12px;background:var(--frost);border-radius:11px}
+.sfield{
+  width:100%;border:1px solid var(--line);border-radius:8px;background:var(--card);
+  padding:8px 10px;font:inherit;font-size:14px;margin-top:6px;
+}
+.sideform>.sfield:first-child{margin-top:0}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.sgrid .sfield{margin-top:0}
+
+/* ── закупівля ───────────────────────────── */
+.shopintro{padding:12px var(--pad) 2px}
+#shopList{padding:8px var(--pad) 4px}
+.shopcat{margin-top:14px}
+.shopcat:first-child{margin-top:2px}
+.shoprow{
+  display:flex;align-items:center;gap:8px;background:var(--card);
+  border:1px solid var(--line-soft);border-left:4px solid var(--line);
+  border-radius:10px;padding:9px 10px;margin-bottom:6px;
+}
+.shoprow.gb{border-left-color:var(--gb)}
+.shoprow.su{border-left-color:var(--su)}
+.shopname{flex:1;font-size:13.5px;font-weight:500;min-width:0}
+.pickqty.small{gap:6px;margin-top:0}
+.pickqty.small .qbtn{width:26px;height:26px;font-size:14px}
+.pickqty.small .qval{flex:none;font-size:12.5px;min-width:22px;text-align:center}
+.shopsum{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink-2);flex:none;min-width:50px;text-align:right}
+
+#shopSummary{padding:6px var(--pad) 24px}
+.shopsummary{
+  margin-top:12px;padding:13px 14px;border-radius:12px;
+  background:var(--card);border:1px solid var(--line-soft);border-left:4px solid var(--line);
+}
+.shopsummary.gb{border-left-color:var(--gb)}
+.shopsummary.su{border-left-color:var(--su)}
+.ssname{font-weight:700;font-size:14.5px}
+.sstotal{font-family:"JetBrains Mono",monospace;font-size:20px;font-weight:700;margin-top:4px}
+.sscount{font-family:inherit;font-size:12px;font-weight:400;color:var(--muted)}
+.ssnote{font-size:12.5px;margin-top:5px;font-weight:600}
+.ssnote.warn{color:#8A6A1F}
+.ssnote.ok{color:#1B6E5A}
+.ssactions{display:flex;gap:8px;margin-top:11px}
+.ssactions .buy{flex:1;margin-top:0;padding:10px}
+.ssclear{
+  flex:none;border:1px solid var(--line);background:var(--frost);color:var(--ink-2);
+  border-radius:11px;padding:10px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;
+}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1 class="wordmark">Морозилка<span>.</span></h1>
+  <div class="sub" id="stamp"></div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab" type="button" role="tab" aria-selected="true" data-view="catalog">Каталог</button>
+  <button class="tab" type="button" role="tab" aria-selected="false" data-view="pantry">Морозилка<span class="tabn" id="pantryCount"></span></button>
+  <button class="tab" type="button" role="tab" aria-selected="false" data-view="week">Тиждень</button>
+  <button class="tab" type="button" role="tab" aria-selected="false" data-view="shop">Закупівля<span class="tabn" id="shopCount"></span></button>
+</nav>
+
+<div id="view-catalog">
+  <div class="controls">
+    <div class="searchrow">
+      <input class="search" id="q" type="search" placeholder="Пошук страви або складу" aria-label="Пошук">
+      <button class="sortbtn" id="sort" aria-label="Змінити сортування"></button>
+    </div>
+    <div class="chipwrap"><div class="chiprow" id="prods"></div></div>
+    <div class="chipwrap"><div class="chiprow" id="cats"></div></div>
+    <div class="tally">
+      <span id="count"></span>
+      <span id="range"></span>
+    </div>
+  </div>
+
+  <main class="grid" id="grid"></main>
+
+  <p class="foot">
+    Ціни звірені <span id="checked"></span>. Каталог оновлюється вручну —<br>
+    перед замовленням перевіряйте суму на сайті виробника.
+  </p>
+</div>
+
+<div id="view-pantry" hidden>
+  <div class="roombar" id="roomStatus"></div>
+  <div id="pantryList"></div>
+</div>
+
+<div id="view-week" hidden>
+  <div class="weeknav">
+    <button id="weekPrev" class="wnbtn" type="button" aria-label="Попередній тиждень">‹</button>
+    <div class="weeklabel" id="weekLabel"></div>
+    <button id="weekNext" class="wnbtn" type="button" aria-label="Наступний тиждень">›</button>
+  </div>
+  <div class="chipwrap"><div class="chiprow" id="dayChips"></div></div>
+  <div id="dayContent"></div>
+</div>
+
+<div id="view-shop" hidden>
+  <div class="shopintro">
+    <div class="chipwrap"><div class="chiprow" id="periodChips"></div></div>
+  </div>
+  <div id="shopList"></div>
+  <div id="shopSummary"></div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="stitle"></section>
+
+<script>
+const DATA = {"updatedAt":"2026-08-11","schemaVersion":1,"producers":{"galya":{"name":"Галя Балувана","short":"ГБ","url":"https://galyabaluvanakyiv.com.ua/","accent":"#C8452E","minOrder":800,"deliveryFee":200,"freeFrom":1300,"note":"Доставка пн-пт 9:00-18:00 на Лівий берег. Самовивіз: Драгоманова 2, Ревуцького 16А, Ахматової 9/18. Фактична вага може відрізнятись на 10%"},"samudoma":{"name":"Сам Удома","short":"СУ","url":"https://delivery.samudoma.com.ua/","accent":"#2E6F5E","minOrder":null,"deliveryFee":null,"freeFrom":null,"note":"16 магазинів у Києві, доставка по місту в день замовлення. Умови по Києву уточнити: +380 99 058 43 80"}},"categories":[{"id":"pelmeni","name":"Пельмені та хінкалі","defaultPortion":250},{"id":"varenyky","name":"Вареники","defaultPortion":250},{"id":"syrnyky","name":"Сирники","defaultPortion":150},{"id":"mlyntsi","name":"Млинці та бендерики","defaultPortion":200},{"id":"kotlety","name":"Котлети й фрикадельки","defaultPortion":100},{"id":"holubtsi","name":"Голубці та перець","defaultPortion":200},{"id":"zrazy","name":"Картопляні зрази","defaultPortion":180},{"id":"chebureky","name":"Чебуреки","defaultPortion":150},{"id":"supy","name":"Перші страви","defaultPortion":275},{"id":"gotovi","name":"Готові страви","defaultPortion":275},{"id":"shef","name":"Страви від шефа","defaultPortion":200},{"id":"kovbasy","name":"Ковбаси","defaultPortion":150},{"id":"desert","name":"Десерти","defaultPortion":100}],"items":[{"id":"g-pelmeni-zi-svynyny","producer":"galya","category":"pelmeni","name":"Пельмені зі свинини","packWeight":1000,"packPrice":275,"pricePerKg":275.0,"portion":250,"nutrition100":{"kcal":260,"protein":12.95,"fat":11.27,"carbs":28.37},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно пшеничне в/г, м'ясо свинне, сало свине, цибуля, олія, вода, сіль, перець чорний","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-pelmeni-z-kurkoyu-ta-motsareloyu","producer":"galya","category":"pelmeni","name":"Пельмені з куркою та моцарелою","packWeight":1000,"packPrice":270,"pricePerKg":270.0,"portion":250,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-pelmeni-zi-svynyny-ta-yalovychyny","producer":"galya","category":"pelmeni","name":"Пельмені зі свинини та яловичини","packWeight":1000,"packPrice":285,"pricePerKg":285.0,"portion":250,"nutrition100":{"kcal":260,"protein":12.95,"fat":11.27,"carbs":28.37},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», яловичина, свинина, сало, цибуля, олія, вода, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-pelmeni-z-kuryatynoyu-ta-svynynoyu","producer":"galya","category":"pelmeni","name":"Пельмені з курятиною та свининою","packWeight":1000,"packPrice":270,"pricePerKg":270.0,"portion":250,"nutrition100":{"kcal":260,"protein":12.95,"fat":11.27,"carbs":28.37},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-pelmeni-z-telyatynoyu","producer":"galya","category":"pelmeni","name":"Пельмені з телятиною","packWeight":1000,"packPrice":295,"pricePerKg":295.0,"portion":250,"nutrition100":{"kcal":260,"protein":12.95,"fat":11.27,"carbs":28.37},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно пшеничне, телятина, кріп свіжий, сіль","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-pelmeni-try-myasa","producer":"galya","category":"pelmeni","name":"Пельмені «Три м'яса»","packWeight":1000,"packPrice":290,"pricePerKg":290.0,"portion":250,"nutrition100":{"kcal":250,"protein":12.95,"fat":11.27,"carbs":28.37},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», яловичина, свинина, куряче м'ясо, сало, цибуля, кріп, олія, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-pelmeni-z-indyka","producer":"galya","category":"pelmeni","name":"Пельмені з індика","packWeight":1000,"packPrice":340,"pricePerKg":340.0,"portion":250,"nutrition100":{"kcal":144,"protein":11.45,"fat":5.8,"carbs":18.8},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», м'ясо індика в/г, цибуля, вода, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-pelmeni-z-kurkoyu","producer":"galya","category":"pelmeni","name":"Пельмені з куркою","packWeight":1000,"packPrice":255,"pricePerKg":255.0,"portion":250,"nutrition100":{"kcal":144,"protein":11.45,"fat":5.8,"carbs":18.8},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-khinkali-zi-svynynoyu","producer":"galya","category":"pelmeni","name":"Хінкалі зі свининою","packWeight":1000,"packPrice":250,"pricePerKg":250.0,"portion":250,"nutrition100":{"kcal":212,"protein":9.8,"fat":11.5,"carbs":23.3},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», свинина, сало, кінза, кріп, петрушка, цибуля, крохмаль, олія, уцхо-сунелі, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-khinkali-z-telyatynoyu","producer":"galya","category":"pelmeni","name":"Хінкалі з телятиною","packWeight":1000,"packPrice":260,"pricePerKg":260.0,"portion":250,"nutrition100":{"kcal":212,"protein":9.8,"fat":11.5,"carbs":23.3},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-khinkali-z-suluhuni","producer":"galya","category":"pelmeni","name":"Хінкалі з сулугуні","packWeight":1000,"packPrice":280,"pricePerKg":280.0,"portion":250,"nutrition100":{"kcal":212,"protein":9.8,"fat":11.5,"carbs":23.3},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», сир сулугуні, крохмаль картопляний, олія, вода, уцхо-сунелі, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg"},{"id":"g-linyvi-varenyky","producer":"galya","category":"varenyky","name":"Ліниві вареники","packWeight":1000,"packPrice":220,"pricePerKg":220.0,"portion":250,"nutrition100":{"kcal":253.37,"protein":11.5,"fat":5.1,"carbs":40.6},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Сир кисломолочний 5%, сіль, цукор, ванільний цукор, борошно, яйце","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-kartopleyu","producer":"galya","category":"varenyky","name":"Вареники з картоплею","packWeight":1000,"packPrice":190,"pricePerKg":190.0,"portion":250,"nutrition100":{"kcal":157.37,"protein":5.4,"fat":4.5,"carbs":25.6},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», картопля варена, цибуля, олія, вода, сіль","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-kartopleyu-ta-syrom","producer":"galya","category":"varenyky","name":"Вареники з картоплею та сиром","packWeight":1000,"packPrice":200,"pricePerKg":200.0,"portion":250,"nutrition100":{"kcal":157.37,"protein":5.4,"fat":4.5,"carbs":25.6},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, сир кисломолочний, зелень, сіль","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-kartopleyu-i-hrybamy","producer":"galya","category":"varenyky","name":"Вареники з картоплею і грибами","packWeight":1000,"packPrice":225,"pricePerKg":225.0,"portion":250,"nutrition100":{"kcal":199.34,"protein":5.59,"fat":4.73,"carbs":34.68},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», картопля варена, печериці, цибуля, олія, вода, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-kartopleyu-i-bilymy-hrybamy","producer":"galya","category":"varenyky","name":"Вареники з картоплею і білими грибами","packWeight":1000,"packPrice":240,"pricePerKg":240.0,"portion":250,"nutrition100":{"kcal":199.34,"protein":5.59,"fat":4.73,"carbs":34.68},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, картопля варена, гриби білі, шампіньйони, цибуля, олія, сіль","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-kapustoyu","producer":"galya","category":"varenyky","name":"Вареники з капустою","packWeight":1000,"packPrice":220,"pricePerKg":220.0,"portion":250,"nutrition100":{"kcal":157.37,"protein":5.45,"fat":4.54,"carbs":25.62},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», капуста квашена, цибуля, морква, олія, вода, сіль","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-kvashenoyu-kapustoyu","producer":"galya","category":"varenyky","name":"Вареники з квашеною капустою","packWeight":1000,"packPrice":220,"pricePerKg":220.0,"portion":250,"nutrition100":{"kcal":157.37,"protein":5.45,"fat":4.54,"carbs":25.62},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-makom","producer":"galya","category":"varenyky","name":"Вареники з маком","packWeight":1000,"packPrice":185,"pricePerKg":185.0,"portion":250,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-hollandskym-syrom-ta-hrybamy","producer":"galya","category":"varenyky","name":"Вареники з голландським сиром та грибами","packWeight":1000,"packPrice":310,"pricePerKg":310.0,"portion":250,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, шампіньйони смажені, сир «Чеддер», вода, цибуля смажена, олія, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-solonym-syrom","producer":"galya","category":"varenyky","name":"Вареники з солоним сиром","packWeight":1000,"packPrice":210,"pricePerKg":210.0,"portion":250,"nutrition100":{"kcal":189.17,"protein":11.17,"fat":5.87,"carbs":30.26},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, сир кисломолочний, зелень, сіль","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-zi-shpynatom-i-solonym-syrom","producer":"galya","category":"varenyky","name":"Вареники зі шпинатом і солоним сиром","packWeight":1000,"packPrice":200,"pricePerKg":200.0,"portion":250,"nutrition100":{"kcal":189.17,"protein":11.17,"fat":5.87,"carbs":30.26},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, сир кисломолочний, шпинат, зелень, сіль","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-liverom","producer":"galya","category":"varenyky","name":"Вареники з лівером","packWeight":1000,"packPrice":200,"pricePerKg":200.0,"portion":250,"nutrition100":{"kcal":251.63,"protein":12.71,"fat":10.87,"carbs":26.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», серце свине, легені свині, сало, цибуля, олія, вода, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-myasom","producer":"galya","category":"varenyky","name":"Вареники з м'ясом","packWeight":1000,"packPrice":310,"pricePerKg":310.0,"portion":250,"nutrition100":{"kcal":227.69,"protein":11.37,"fat":9.43,"carbs":24.93},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», м'ясо свине в/г, сало, цибуля, олія, вода, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-solodkym-syrom","producer":"galya","category":"varenyky","name":"Вареники з солодким сиром","packWeight":1000,"packPrice":200,"pricePerKg":200.0,"portion":250,"nutrition100":{"kcal":204.17,"protein":10.17,"fat":4.87,"carbs":30.26},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», сир кисломолочний, олія, яйце, вода, цукор ванільний, цукор","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-vyshneyu","producer":"galya","category":"varenyky","name":"Вареники з вишнею","packWeight":1000,"packPrice":290,"pricePerKg":290.0,"portion":250,"nutrition100":{"kcal":182.35,"protein":4.47,"fat":2.89,"carbs":36.52},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», вишня свіжоморожена, олія, вода, сіль, цукор","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-chornytseyu","producer":"galya","category":"varenyky","name":"Вареники з чорницею","packWeight":1000,"packPrice":320,"pricePerKg":320.0,"portion":250,"nutrition100":{"kcal":182.35,"protein":4.47,"fat":2.89,"carbs":36.52},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, чорниця свіжоморожена, цукор","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-z-polunytseyu","producer":"galya","category":"varenyky","name":"Вареники з полуницею","packWeight":1000,"packPrice":235,"pricePerKg":235.0,"portion":250,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-varenyky-shokoladni-z-syrom-ta-shokoladnymy-drop","producer":"galya","category":"varenyky","name":"Вареники шоколадні з сиром та шоколадними дропсами","packWeight":1000,"packPrice":250,"pricePerKg":250.0,"portion":250,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити 5-7 хв","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg"},{"id":"g-syrnyky","producer":"galya","category":"syrnyky","name":"Сирники","packWeight":1000,"packPrice":230,"pricePerKg":230.0,"portion":150,"nutrition100":{"kcal":211,"protein":15.93,"fat":8.43,"carbs":17.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», сир кисломолочний, яєчний жовток, цукор ванільний, цукор","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg"},{"id":"g-syrnyky-z-kurahoyu","producer":"galya","category":"syrnyky","name":"Сирники з курагою","packWeight":1000,"packPrice":280,"pricePerKg":280.0,"portion":150,"nutrition100":{"kcal":211,"protein":15.93,"fat":8.43,"carbs":17.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg"},{"id":"g-syrnyky-z-bananom","producer":"galya","category":"syrnyky","name":"Сирники з бананом","packWeight":1000,"packPrice":245,"pricePerKg":245.0,"portion":150,"nutrition100":{"kcal":218,"protein":15.93,"fat":8.43,"carbs":18.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, сир кисломолочний, банан, цукор ванільний, цукор, жовток","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg"},{"id":"g-syrnyky-z-shokoladom","producer":"galya","category":"syrnyky","name":"Сирники з шоколадом","packWeight":1000,"packPrice":260,"pricePerKg":260.0,"portion":150,"nutrition100":{"kcal":218,"protein":15.93,"fat":8.43,"carbs":18.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», сир кисломолочний, шоколад чорний, жовток, цукор","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg"},{"id":"g-syrnyky-z-rodzynkamy","producer":"galya","category":"syrnyky","name":"Сирники з родзинками","packWeight":1000,"packPrice":270,"pricePerKg":270.0,"portion":150,"nutrition100":{"kcal":221,"protein":15.93,"fat":8.43,"carbs":19.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», сир кисломолочний, родзинки, жовток, цукор","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg"},{"id":"g-syrnyky-soloni-z-brynzoyu-ta-kropom","producer":"galya","category":"syrnyky","name":"Сирники солоні з бринзою та кропом","packWeight":1000,"packPrice":290,"pricePerKg":290.0,"portion":150,"nutrition100":{"kcal":210.75,"protein":15.93,"fat":8.43,"carbs":17.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Сир кисломолочний, жовток, цукор, борошно, кріп, сіль","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg"},{"id":"g-syrnyky-z-vyalenoyu-zhuravlynoyu","producer":"galya","category":"syrnyky","name":"Сирники з в'яленою журавлиною","packWeight":1000,"packPrice":270,"pricePerKg":270.0,"portion":150,"nutrition100":{"kcal":210.75,"protein":15.93,"fat":8.43,"carbs":17.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg"},{"id":"g-syrnyky-z-solonoyu-karamellyu","producer":"galya","category":"syrnyky","name":"Сирники з солоною карамеллю","packWeight":1000,"packPrice":250,"pricePerKg":250.0,"portion":150,"nutrition100":{"kcal":210.75,"protein":15.93,"fat":8.43,"carbs":17.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg"},{"id":"g-syrnyky-z-kokosom","producer":"galya","category":"syrnyky","name":"Сирники з кокосом","packWeight":1000,"packPrice":250,"pricePerKg":250.0,"portion":150,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg"},{"id":"g-mlyntsi-z-solodkym-syrom","producer":"galya","category":"mlyntsi","name":"Млинці з солодким сиром","packWeight":600,"packPrice":147,"pricePerKg":245.0,"portion":200,"nutrition100":{"kcal":195,"protein":9.1,"fat":6.1,"carbs":22.0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», сир кисломолочний, яйця, масло вершкове, молоко, олія, цукор","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-barbi-z-syrom-ta-vyshneyu","producer":"galya","category":"mlyntsi","name":"Млинці «Барбі» з сиром та вишнею","packWeight":600,"packPrice":174,"pricePerKg":290.0,"portion":200,"nutrition100":{"kcal":195,"protein":9.1,"fat":6.1,"carbs":22.0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-malynovym-konfityurom-syrom-filadelfiy","producer":"galya","category":"mlyntsi","name":"Млинці з малиновим конфітюром, сиром Філадельфія та кисломолочним сиром","packWeight":600,"packPrice":192,"pricePerKg":320.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-shokoladni-mlyntsi-z-syrom-bananom-ta-shokoladno","producer":"galya","category":"mlyntsi","name":"Шоколадні млинці з сиром, бананом та шоколадною пастою","packWeight":500,"packPrice":140,"pricePerKg":280.0,"portion":200,"nutrition100":{"kcal":191.1,"protein":8.9,"fat":6.2,"carbs":22.7},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, сир кисломолочний, банан, яйця, масло, молоко, какао, шоколадно-горіхова паста, цукор","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-syrom-ta-polunytseyu","producer":"galya","category":"mlyntsi","name":"Млинці з сиром та полуницею","packWeight":600,"packPrice":156,"pricePerKg":260.0,"portion":200,"nutrition100":{"kcal":195,"protein":9.1,"fat":6.1,"carbs":22.0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», сир кисломолочний, полуниця, яйця, масло, молоко, олія, цукор","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-syrom-ta-chornytseyu","producer":"galya","category":"mlyntsi","name":"Млинці з сиром та чорницею","packWeight":600,"packPrice":168,"pricePerKg":280.0,"portion":200,"nutrition100":{"kcal":195,"protein":9.1,"fat":6.1,"carbs":22.0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, сир кисломолочний, вода, яйце, чорниця, масло, молоко, цукор","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-makom-ta-vyshneyu","producer":"galya","category":"mlyntsi","name":"Млинці з маком та вишнею","packWeight":600,"packPrice":186,"pricePerKg":310.0,"portion":200,"nutrition100":{"kcal":195,"protein":9.1,"fat":6.1,"carbs":22.0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», макова начинка, вишня, яйце, масло, молоко, олія, цукор","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-bananom-ta-zhushchenym-molokom","producer":"galya","category":"mlyntsi","name":"Млинці з бананом та згущеним молоком","packWeight":500,"packPrice":150,"pricePerKg":300.0,"portion":200,"nutrition100":{"kcal":195,"protein":9.1,"fat":6.1,"carbs":22.0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, масло, молоко, яйця, банан, молоко згущене","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-karamelizovanym-yablukom","producer":"galya","category":"mlyntsi","name":"Млинці з карамелізованим яблуком","packWeight":500,"packPrice":130,"pricePerKg":260.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, яблука, молоко, масло вершкове, яйця, цукор","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-shynkoyu-ta-syrom","producer":"galya","category":"mlyntsi","name":"Млинці з шинкою та сиром","packWeight":500,"packPrice":185,"pricePerKg":370.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», яйця, масло, молоко, шинка копчена, сир «Чедер», вершки, майонез, гірчиця, кріп","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-syrom-suluhuni-motsareloyu-ta-zelennyu","producer":"galya","category":"mlyntsi","name":"Млинці з сиром сулугуні/моцарелою та зеленню","packWeight":500,"packPrice":172.5,"pricePerKg":345.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-kurkoyu-ta-hrybamy","producer":"galya","category":"mlyntsi","name":"Млинці з куркою та грибами","packWeight":500,"packPrice":165,"pricePerKg":330.0,"portion":200,"nutrition100":{"kcal":221,"protein":8.0,"fat":9.0,"carbs":15.3},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», куряче філе в/г, печериці, цибуля, яйця, масло, молоко, олія, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-liverom","producer":"galya","category":"mlyntsi","name":"Млинці з лівером","packWeight":500,"packPrice":120,"pricePerKg":240.0,"portion":200,"nutrition100":{"kcal":265.4,"protein":13.7,"fat":17.3,"carbs":15.7},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», серце свинне, легені свинні, цибуля, яйце, масло, молоко, олія, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-myasom-svynyny","producer":"galya","category":"mlyntsi","name":"Млинці з м'ясом свинини","packWeight":500,"packPrice":160,"pricePerKg":320.0,"portion":200,"nutrition100":{"kcal":299,"protein":8.0,"fat":15.0,"carbs":13.0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», свинина, сало, цибуля, яйця, масло, молоко, олія, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-lososem-ta-syrom-filadelfiya","producer":"galya","category":"mlyntsi","name":"Млинці з лососем та сиром Філадельфія","packWeight":500,"packPrice":225,"pricePerKg":450.0,"portion":200,"nutrition100":{"kcal":280,"protein":11.1,"fat":12.1,"carbs":10.0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», сир кисломолочний, філе лосося в/г, яйце, масло, молоко, олія, сіль","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-shpynatni-z-krem-syrom","producer":"galya","category":"mlyntsi","name":"Млинці шпинатні з крем-сиром","packWeight":500,"packPrice":190,"pricePerKg":380.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, молоко, масло селянське, вода, яйце, шпинат, крем-сир, сіль, цукор","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-z-manho-z-krem-syrom-filadelfiya-ta-kysl","producer":"galya","category":"mlyntsi","name":"Млинці з манго з крем-сиром Філадельфія та кисломолочним сиром","packWeight":500,"packPrice":170,"pricePerKg":340.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-vyshyvanka-mak-solodkyj-syr-vyshnya","producer":"galya","category":"mlyntsi","name":"Млинці «Вишиванка» (мак, солодкий сир, вишня)","packWeight":500,"packPrice":135,"pricePerKg":270.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-mlyntsi-zhulyen-kurka-hryby-beshamel-tverdyj-syr","producer":"galya","category":"mlyntsi","name":"Млинці Жульєн (курка, гриби, бешамель, твердий сир, смажена цибуля)","packWeight":500,"packPrice":157.5,"pricePerKg":315.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-benderyky","producer":"galya","category":"mlyntsi","name":"Бендерики","packWeight":800,"packPrice":232,"pricePerKg":290.0,"portion":200,"nutrition100":{"kcal":299,"protein":8.0,"fat":15.0,"carbs":13.0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», свинина, сало, цибуля, яйце, масло, молоко, олія, сіль, цукор, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-benderyky-z-kurkoyu-ta-syrom","producer":"galya","category":"mlyntsi","name":"Бендерики з куркою та сиром","packWeight":800,"packPrice":236,"pricePerKg":295.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-benderyky-z-syrom-ta-suluhuni","producer":"galya","category":"mlyntsi","name":"Бендерики з сиром та сулугуні","packWeight":800,"packPrice":240,"pricePerKg":300.0,"portion":200,"nutrition100":{"kcal":295.87,"protein":11.63,"fat":15.65,"carbs":26.72},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно в/с, вода, сир, сулугуні, зелень свіжа","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-benderyky-shpynatni-z-kurkoyu-ta-hrybamy","producer":"galya","category":"mlyntsi","name":"Бендерики шпинатні з куркою та грибами","packWeight":800,"packPrice":228,"pricePerKg":285.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg"},{"id":"g-kartoplyani-zrazy-z-myasom","producer":"galya","category":"zrazy","name":"Картопляні зрази з м'ясом","packWeight":600,"packPrice":150,"pricePerKg":250.0,"portion":180,"nutrition100":{"kcal":145,"protein":3.8,"fat":8.0,"carbs":19.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», картопляне пюре, свинина в/г, сало, цибуля, олія, яйце, вода, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg"},{"id":"g-kartoplyani-zrazy-z-liverom","producer":"galya","category":"zrazy","name":"Картопляні зрази з лівером","packWeight":600,"packPrice":114,"pricePerKg":190.0,"portion":180,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, картопляне пюре, лівер (серце, легені), сало, цибуля, сіль, олія, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg"},{"id":"g-kartoplyani-zrazy-z-kurkoyu-ta-hrybamy","producer":"galya","category":"zrazy","name":"Картопляні зрази з куркою та грибами","packWeight":600,"packPrice":144,"pricePerKg":240.0,"portion":180,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg"},{"id":"g-kartoplyani-zrazy-z-horokhom","producer":"galya","category":"zrazy","name":"Картопляні зрази з горохом","packWeight":600,"packPrice":102,"pricePerKg":170.0,"portion":180,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, картопляне пюре, горох колотий варений, цибуля смажена, яйце, олія, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg"},{"id":"g-kartoplyani-zrazy-z-kapustoyu","producer":"galya","category":"zrazy","name":"Картопляні зрази з капустою","packWeight":600,"packPrice":120,"pricePerKg":200.0,"portion":180,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно, картопляне пюре, капуста квашена, морква, олія, цибуля смажена, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg"},{"id":"g-kartoplyani-zrazy-z-hrybamy","producer":"galya","category":"zrazy","name":"Картопляні зрази з грибами","packWeight":600,"packPrice":126,"pricePerKg":210.0,"portion":180,"nutrition100":{"kcal":130.76,"protein":3.69,"fat":5.5,"carbs":19.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», картопляне пюре, печериці, цибуля, морква, олія, яйце, вода, сіль","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg"},{"id":"g-holubtsi-z-myasom-svynyna","producer":"galya","category":"holubtsi","name":"Голубці з м'ясом (свинина)","packWeight":1000,"packPrice":265,"pricePerKg":265.0,"portion":200,"nutrition100":{"kcal":172,"protein":7.1,"fat":11.54,"carbs":10.9},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Рис круглий в/г, свинина в/г, сало, капуста білокачанна, цибуля, морква, сіль, перець","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg"},{"id":"g-holubtsi-z-hrybamy","producer":"galya","category":"holubtsi","name":"Голубці з грибами","packWeight":1000,"packPrice":250,"pricePerKg":250.0,"portion":200,"nutrition100":{"kcal":57.54,"protein":2.1,"fat":3.4,"carbs":7.9},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Рис круглий, печериці смажені, цибуля, морква, капуста, олія, сіль, перець","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg"},{"id":"g-holubtsi-z-telyatynoyu","producer":"galya","category":"holubtsi","name":"Голубці з телятиною","packWeight":1000,"packPrice":270,"pricePerKg":270.0,"portion":200,"nutrition100":{"kcal":162,"protein":7.1,"fat":11.54,"carbs":10.9},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Рис круглий в/г, телятина в/г, капуста, цибуля, морква, сіль, перець","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg"},{"id":"g-holubtsi-z-myasom-kurky","producer":"galya","category":"holubtsi","name":"Голубці з м'ясом курки","packWeight":1000,"packPrice":260,"pricePerKg":260.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg"},{"id":"g-holubtsi-zi-svynynoyu-ta-yalovychynoyu","producer":"galya","category":"holubtsi","name":"Голубці зі свининою та яловичиною","packWeight":1000,"packPrice":270,"pricePerKg":270.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Рис круглий в/г, шинка свинна, яловичина знежилована, перець болгарський, цибуля, морква, сіль, перець","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg"},{"id":"g-perets-farshyrovanyj-z-myasom-svynyna","producer":"galya","category":"holubtsi","name":"Перець фарширований з м'ясом (свинина)","packWeight":700,"packPrice":196,"pricePerKg":280.0,"portion":200,"nutrition100":{"kcal":172,"protein":7.1,"fat":11.54,"carbs":10.9},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Рис круглий в/г, шинка свинна, сало, перець болгарський, цибуля, морква, сіль, перець","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg"},{"id":"g-perets-farshyrovanyj-z-hrybamy","producer":"galya","category":"holubtsi","name":"Перець фарширований з грибами","packWeight":700,"packPrice":178.5,"pricePerKg":255.0,"portion":200,"nutrition100":{"kcal":57.54,"protein":2.1,"fat":3.4,"carbs":7.9},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Рис круглий в/г, печериці, сало, перець болгарський, цибуля, морква, сіль, перець","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg"},{"id":"g-chebureky-zi-svynynoyu","producer":"galya","category":"chebureky","name":"Чебуреки зі свининою","packWeight":500,"packPrice":100,"pricePerKg":200.0,"portion":150,"nutrition100":{"kcal":246.26,"protein":8.5,"fat":14.25,"carbs":29.95},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», свинина, сало, цибуля, олія, вода, сіль, перець","cooking":"Трохи розморозити, смажити на розігрітій олії з двох боків","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg"},{"id":"g-chebureky-z-syrom-ta-zelennyu","producer":"galya","category":"chebureky","name":"Чебуреки з сиром та зеленню","packWeight":500,"packPrice":110,"pricePerKg":220.0,"portion":150,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно в/с, сир кисломолочний, сир «Чеддер», вода, цибуля, олія, дріжджі, цукор, кріп, петрушка, сіль, перець","cooking":"Трохи розморозити, смажити на розігрітій олії з двох боків","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg"},{"id":"g-chebureky-zi-svynynoyu-syrom-ta-pomidoramy","producer":"galya","category":"chebureky","name":"Чебуреки зі свининою, сиром та помідорами","packWeight":500,"packPrice":110,"pricePerKg":220.0,"portion":150,"nutrition100":{"kcal":246.26,"protein":8.5,"fat":14.25,"carbs":29.95},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Борошно «Екстра», свинина, сало, сир чедер, помідор свіжий, цибуля, олія, вода, сіль, перець","cooking":"Трохи розморозити, смажити на розігрітій олії з двох боків","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg"},{"id":"g-chebureky-z-kurkoyu","producer":"galya","category":"chebureky","name":"Чебуреки з куркою","packWeight":500,"packPrice":95,"pricePerKg":190.0,"portion":150,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Трохи розморозити, смажити на розігрітій олії з двох боків","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg"},{"id":"g-chebureky-zi-svynynoyu-ta-yalovychynoyu","producer":"galya","category":"chebureky","name":"Чебуреки зі свининою та яловичиною","packWeight":500,"packPrice":105,"pricePerKg":210.0,"portion":150,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Трохи розморозити, смажити на розігрітій олії з двох боків","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg"},{"id":"g-kotlety-zi-svynyny","producer":"galya","category":"kotlety","name":"Котлети зі свинини","packWeight":800,"packPrice":248,"pricePerKg":310.0,"portion":100,"nutrition100":{"kcal":305.2,"protein":14.4,"fat":20.5,"carbs":7.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Свинина в/г, сало, цибуля, яйце, панірувальні сухарі, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kotlety-zi-svynyny-ta-yalovychyny","producer":"galya","category":"kotlety","name":"Котлети зі свинини та яловичини","packWeight":800,"packPrice":264,"pricePerKg":330.0,"portion":100,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Свинина в/г, сало, яловичина в/г, цибуля, яйце, панірувальні сухарі, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kotlety-z-ryby","producer":"galya","category":"kotlety","name":"Котлети з риби","packWeight":800,"packPrice":272,"pricePerKg":340.0,"portion":100,"nutrition100":{"kcal":139.2,"protein":13.4,"fat":7.5,"carbs":7.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Філе морської риби Аргентина, сало, цибуля, яйце, панірувальні сухарі, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kotlety-z-ryby-pisni","producer":"galya","category":"kotlety","name":"Котлети з риби (пісні)","packWeight":800,"packPrice":288,"pricePerKg":360.0,"portion":100,"nutrition100":{"kcal":109.2,"protein":13.4,"fat":3.5,"carbs":7.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Філе морської риби Аргентина, цибуля, панірувальні сухарі, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kotlety-z-kuryatyny","producer":"galya","category":"kotlety","name":"Котлети з курятини","packWeight":800,"packPrice":264,"pricePerKg":330.0,"portion":100,"nutrition100":{"kcal":228,"protein":18.4,"fat":12.5,"carbs":14.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Філе куряче, сало, цибуля, яйце, панірувальні сухарі, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kotlety-indychi","producer":"galya","category":"kotlety","name":"Котлети «Індичі»","packWeight":600,"packPrice":270,"pricePerKg":450.0,"portion":100,"nutrition100":{"kcal":156.2,"protein":22.4,"fat":18.5,"carbs":1.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"М'ясо індика в/г, цибуля, кукурудзяна крупа, сухарі, яйце, сіль","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kotlety-burherni","producer":"galya","category":"kotlety","name":"Котлети «Бургерні»","packWeight":600,"packPrice":264,"pricePerKg":440.0,"portion":100,"nutrition100":{"kcal":246.45,"protein":28.72,"fat":12.18,"carbs":4.94},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Яловичина знежилована в/с, сало, гірчиця, сіль, перець","cooking":"Смажити без олії 5-7 хв, періодично перевертаючи","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kotlety-kordon-blyu","producer":"galya","category":"kotlety","name":"Котлети «Кордон Блю»","packWeight":600,"packPrice":252,"pricePerKg":420.0,"portion":100,"nutrition100":{"kcal":211,"protein":20.4,"fat":10.5,"carbs":4.7},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Філе куряче, сир «Чеддер», масло вершкове, яйця, сухарі, кріп, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-hrechanyky","producer":"galya","category":"kotlety","name":"Гречаники","packWeight":1000,"packPrice":280,"pricePerKg":280.0,"portion":100,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Свинина знежилована напівжирна, сало, крупа гречана варена, цибуля, яйця, сухарі, олія","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-frykadelky-kuryachi","producer":"galya","category":"kotlety","name":"Фрикадельки «Курячі»","packWeight":500,"packPrice":185,"pricePerKg":370.0,"portion":100,"nutrition100":{"kcal":144.2,"protein":22.4,"fat":5.5,"carbs":0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"М'ясо курки в/г, цибуля, сіль","cooking":"Запікати 30 хв при 180 °C або на паровій бані","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-frykadelky-rybni","producer":"galya","category":"kotlety","name":"Фрикадельки рибні","packWeight":500,"packPrice":165,"pricePerKg":330.0,"portion":100,"nutrition100":{"kcal":144.2,"protein":22.4,"fat":5.5,"carbs":0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Філе риби Аргентина в/г, цибуля, сіль","cooking":"Запікати 30 хв при 180 °C або на паровій бані","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-frykadelky-indychi","producer":"galya","category":"kotlety","name":"Фрикадельки Індичі","packWeight":500,"packPrice":222,"pricePerKg":444.0,"portion":100,"nutrition100":{"kcal":144.2,"protein":22.4,"fat":5.5,"carbs":0},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Телятина, яйце перепелине, цибуля мелена, сіль","cooking":"Запікати 30 хв при 180 °C або на паровій бані","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kotlety-kuryachi-parovi","producer":"galya","category":"kotlety","name":"Котлети Курячі (парові)","packWeight":600,"packPrice":225,"pricePerKg":375.0,"portion":100,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Філе куряче, м'ясо стегна, цибуля, хліб, яйця, часник, молоко, сіль, перець","cooking":"На пару або в духовці","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kotlety-po-kyyivsky","producer":"galya","category":"kotlety","name":"Котлети по-київськи","packWeight":600,"packPrice":246,"pricePerKg":410.0,"portion":100,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Філе куряче, сало, масло вершкове, кріп, сіль, панірувальні сухарі, яйця, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg"},{"id":"g-kovbasky-hryl-kuryachi-z-syrom","producer":"galya","category":"kovbasy","name":"Ковбаски гриль курячі з сиром","packWeight":800,"packPrice":320,"pricePerKg":400.0,"portion":150,"nutrition100":{"kcal":177.84,"protein":16.4,"fat":11.5,"carbs":1.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Філе куряче, сало, сир чедер, часник, оболонка натуральна, сіль, перець","cooking":"Смажити або запікати до готовності","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7890-scaled.jpg"},{"id":"g-kovbasky-hryl-svynni","producer":"galya","category":"kovbasy","name":"Ковбаски гриль свинні","packWeight":800,"packPrice":320,"pricePerKg":400.0,"portion":150,"nutrition100":{"kcal":339.2,"protein":15.4,"fat":28.5,"carbs":0.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Шинка свиняча, сало, часник, оболонка натуральна, сіль, перець","cooking":"Смажити або запікати до готовності","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7890-scaled.jpg"},{"id":"g-kovbasa-domashnya","producer":"galya","category":"kovbasy","name":"Ковбаса домашня","packWeight":800,"packPrice":335,"pricePerKg":418.75,"portion":150,"nutrition100":{"kcal":339.2,"protein":15.4,"fat":28.5,"carbs":0.1},"nutritionSource":"label","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Шинка свиняча, сало, часник, гірчиця в зернах, оболонка натуральна, сіль, перець","cooking":"Смажити або запікати до готовності","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7890-scaled.jpg"},{"id":"g-syrni-palychky","producer":"galya","category":"shef","name":"Сирні палички","packWeight":600,"packPrice":276,"pricePerKg":460.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Сир «Моцарела», яйця, сухарі панірувальні, куркума, борошно","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-pashtet-delikatesnyj","producer":"galya","category":"shef","name":"Паштет Делікатесний","packWeight":500,"packPrice":182.5,"pricePerKg":365.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Печінка куряча, свинина знежилована, цибуля, морква, масло вершкове, сіль","cooking":"Запікати 20 хв при 180 °C","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-pechinkovyj-tort","producer":"galya","category":"shef","name":"Печінковий торт","packWeight":800,"packPrice":224,"pricePerKg":280.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","composition":"Печінка куряча, молоко, борошно, яйця, олія, цибуля, морква, майонез, сир «Чеддер», сухарі, сіль, перець","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-kish-z-lososem","producer":"galya","category":"shef","name":"Кіш з лососем","packWeight":400,"packPrice":250,"pricePerKg":625.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-kish-z-kurkoyu-ta-hrybamy","producer":"galya","category":"shef","name":"Кіш з куркою та грибами","packWeight":400,"packPrice":210,"pricePerKg":525.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-lazanya-zi-svynynoyu","producer":"galya","category":"shef","name":"Лазанья зі свининою","packWeight":900,"packPrice":297,"pricePerKg":330.0,"portion":300,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-lazanya-z-kurkoyu","producer":"galya","category":"shef","name":"Лазанья з куркою","packWeight":900,"packPrice":288,"pricePerKg":320.0,"portion":300,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-lazanya-z-telyatynoyu","producer":"galya","category":"shef","name":"Лазанья з телятиною","packWeight":840,"packPrice":277.2,"pricePerKg":330.0,"portion":300,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-nahetsy-kuryachi","producer":"galya","category":"shef","name":"Нагетси курячі","packWeight":500,"packPrice":213,"pricePerKg":426.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-khachapuri-po-adzharsky","producer":"galya","category":"shef","name":"Хачапурі по-аджарськи","packWeight":500,"packPrice":160,"pricePerKg":320.0,"portion":250,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-zhulyen-z-kuroyu-ta-hrybamy","producer":"galya","category":"shef","name":"Жульєн з курою та грибами","packWeight":400,"packPrice":184,"pricePerKg":460.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg"},{"id":"g-banosh-z-brynzoyu","producer":"galya","category":"gotovi","name":"Банош з бринзою","packWeight":400,"packPrice":220,"pricePerKg":550.0,"portion":200,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-befstrohanov-z-kartoplyanym-pyure","producer":"galya","category":"gotovi","name":"Бефстроганов з картопляним пюре","packWeight":600,"packPrice":240,"pricePerKg":400.0,"portion":300,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-borshch-shchavlevyj","producer":"galya","category":"supy","name":"Борщ щавлевий","packWeight":600,"packPrice":220,"pricePerKg":366.67,"portion":300,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-indychka-z-bulhurom","producer":"galya","category":"gotovi","name":"Індичка з булгуром","packWeight":600,"packPrice":300,"pricePerKg":500.0,"portion":300,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-svyne-file-z-kartoplyanym-pyure-ta-hrybnym-souso","producer":"galya","category":"gotovi","name":"Свине філе з картопляним пюре та грибним соусом","packWeight":600,"packPrice":315,"pricePerKg":525.0,"portion":300,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-kachyne-file-z-kartoplyano-shpynatnym-pyure-ta-s","producer":"galya","category":"gotovi","name":"Качине філе з картопляно-шпинатним пюре та шпинатним соусом","packWeight":600,"packPrice":335,"pricePerKg":558.33,"portion":300,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-krem-sup-harbuzovyj","producer":"galya","category":"supy","name":"Крем-суп гарбузовий","packWeight":550,"packPrice":173,"pricePerKg":314.55,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-krem-sup-z-brokoli","producer":"galya","category":"supy","name":"Крем-суп з броколі","packWeight":550,"packPrice":209,"pricePerKg":380.0,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-krem-sup-z-sochevytsi-na-kokosovomu-molotsi","producer":"galya","category":"supy","name":"Крем-суп з сочевиці на кокосовому молоці","packWeight":550,"packPrice":228,"pricePerKg":414.55,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-krem-sup-syrnyj","producer":"galya","category":"supy","name":"Крем-суп сирний","packWeight":550,"packPrice":228,"pricePerKg":414.55,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-pasta-z-chornylamy-karakatytsi-ta-moreproduktamy","producer":"galya","category":"gotovi","name":"Паста з чорнилами каракатиці та морепродуктами","packWeight":550,"packPrice":350,"pricePerKg":636.36,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-sup-tajskyj","producer":"galya","category":"supy","name":"Суп Тайський","packWeight":550,"packPrice":390,"pricePerKg":709.09,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-mitboly-z-kartoplyanym-pyure-ta-syrnym-sousom","producer":"galya","category":"gotovi","name":"Мітболи з картопляним пюре та сирним соусом","packWeight":550,"packPrice":291,"pricePerKg":529.09,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-kuryache-file-z-kartoplyanym-pyure-ta-syrnym-sou","producer":"galya","category":"gotovi","name":"Куряче філе з картопляним пюре та сирним соусом","packWeight":550,"packPrice":248,"pricePerKg":450.91,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-chiken-bol-z-hrechkoyu-ta-tsybulevym-sousom","producer":"galya","category":"gotovi","name":"Чікен бол з гречкою та цибулевим соусом","packWeight":550,"packPrice":258,"pricePerKg":469.09,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-chiken-bol-z-rysom-ta-syrnym-sousom","producer":"galya","category":"gotovi","name":"Чікен бол з рисом та сирним соусом","packWeight":550,"packPrice":258,"pricePerKg":469.09,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-file-okunya-z-kartoplyano-shpynatnym-pyure-ta-ts","producer":"galya","category":"gotovi","name":"Філе окуня з картопляно-шпинатним пюре та цибулевим соусом","packWeight":550,"packPrice":248,"pricePerKg":450.91,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-lavash-z-tuntsem","producer":"galya","category":"gotovi","name":"Лаваш з тунцем","packWeight":500,"packPrice":230,"pricePerKg":460.0,"portion":250,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-lavash-z-pechenoyu-kurkoyu-ta-syrom","producer":"galya","category":"gotovi","name":"Лаваш з печеною куркою та сиром","packWeight":500,"packPrice":210,"pricePerKg":420.0,"portion":250,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-lavash-z-kurkoyu-ta-hrybamy-pid-sousom-teriyaki","producer":"galya","category":"gotovi","name":"Лаваш з куркою та грибами під соусом Теріякі","packWeight":500,"packPrice":210,"pricePerKg":420.0,"portion":250,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-borshch-chervonyj-z-chornoslyvom","producer":"galya","category":"supy","name":"Борщ червоний (з чорносливом)","packWeight":550,"packPrice":275,"pricePerKg":500.0,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-sup-tomatnyj-z-krevetkamy-ta-midiyamy","producer":"galya","category":"supy","name":"Суп томатний з креветками та мідіями","packWeight":550,"packPrice":270,"pricePerKg":490.91,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-krem-sup-kukurudzyanyj-z-krevetkamy","producer":"galya","category":"supy","name":"Крем-суп кукурудзяний з креветками","packWeight":550,"packPrice":223,"pricePerKg":405.45,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":2,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-solyanka-kontsentrat","producer":"galya","category":"supy","name":"Солянка (концентрат)","packWeight":550,"packPrice":240,"pricePerKg":436.36,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Додати 500-600 мл води, варити 15 хв. Виходить 3 повноцінні порції","portionsPerPackOverride":3,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-bohrach-kontsentrat","producer":"galya","category":"supy","name":"Бограч (концентрат)","packWeight":550,"packPrice":190,"pricePerKg":345.45,"portion":275,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Додати 500-600 мл води, варити 15 хв. Виходить 3 повноцінні порції","portionsPerPackOverride":3,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg"},{"id":"g-pasta-karbonara","producer":"galya","category":"gotovi","name":"Паста Карбонара","packWeight":320,"packPrice":200,"pricePerKg":625.0,"portion":320,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Тільки розігріти","portionsPerPackOverride":1,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-pasta-toskana-z-indychkoyu","producer":"galya","category":"gotovi","name":"Паста Тоскана з індичкою","packWeight":320,"packPrice":215,"pricePerKg":671.88,"portion":320,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Тільки розігріти","portionsPerPackOverride":1,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-rvana-svynyna-z-kuskusom","producer":"galya","category":"gotovi","name":"Рвана свинина з кускусом","packWeight":320,"packPrice":185,"pricePerKg":578.12,"portion":320,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Тільки розігріти","portionsPerPackOverride":1,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-sinabony","producer":"galya","category":"gotovi","name":"Сінабони","packWeight":800,"packPrice":308,"pricePerKg":385.0,"portion":120,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","portionsPerPackOverride":6,"photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg"},{"id":"g-rulet-merenhovyj-malyna","producer":"galya","category":"desert","name":"Рулет меренговий малина","packWeight":550,"packPrice":264,"pricePerKg":480.0,"portion":110,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg"},{"id":"g-rulet-merenhovyj-polunytsya","producer":"galya","category":"desert","name":"Рулет меренговий полуниця","packWeight":550,"packPrice":264,"pricePerKg":480.0,"portion":110,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg"},{"id":"g-rulet-merenhovyj-abrykos-persyk","producer":"galya","category":"desert","name":"Рулет меренговий абрикос-персик","packWeight":550,"packPrice":264,"pricePerKg":480.0,"portion":110,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg"},{"id":"g-syrok-hlazurovanyj-miks-smakiv","producer":"galya","category":"desert","name":"Сирок глазурований мікс смаків","packWeight":400,"packPrice":280,"pricePerKg":700.0,"portion":133,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg"},{"id":"g-tort-try-shokolady","producer":"galya","category":"desert","name":"Торт «Три шоколади»","packWeight":150,"packPrice":155,"pricePerKg":1033.33,"portion":150,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg"},{"id":"g-tort-tiramisu","producer":"galya","category":"desert","name":"Торт «Тірамісу»","packWeight":150,"packPrice":110,"pricePerKg":733.33,"portion":150,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg"},{"id":"g-dubajskyj-shokolad-mountain","producer":"galya","category":"desert","name":"Дубайський шоколад «Mountain»","packWeight":100,"packPrice":230,"pricePerKg":2300.0,"portion":100,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg"},{"id":"g-moti-mountain","producer":"galya","category":"desert","name":"Моті «Mountain»","packWeight":60,"packPrice":65,"pricePerKg":1083.33,"portion":60,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg"},{"id":"g-morozyvo-halya-baluvana","producer":"galya","category":"desert","name":"Морозиво «Галя Балувана»","packWeight":175,"packPrice":100,"pricePerKg":571.43,"portion":175,"nutritionSource":"unknown","url":"https://galyabaluvanakyiv.com.ua/","priceCheckedAt":"2026-08-11","photo":"https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg"},{"id":"su-varenyky-z-kartopleyu","producer":"samudoma","category":"varenyky","name":"Вареники з картоплею","packWeight":1000,"packPrice":143,"pricePerKg":143.0,"portion":250,"nutrition100":{"kcal":155,"protein":4.14,"fat":1.56,"carbs":31.11},"nutritionSource":"label","url":"https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu/","priceCheckedAt":"2026-08-11","composition":"Борошно в/с, картопля варена, вода, цибуля смажена, яйця, олія, сіль","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-domashni-syrnyky-klasychni","producer":"samudoma","category":"syrnyky","name":"Домашні сирники класичні","packWeight":1000,"packPrice":238,"pricePerKg":238.0,"portion":150,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/domashni-syrnyky-klasychni/","priceCheckedAt":"2026-08-11","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"},{"id":"su-holubtsi-zi-svynynoyu","producer":"samudoma","category":"holubtsi","name":"Голубці зі свининою","packWeight":1000,"packPrice":220,"pricePerKg":220.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/golubci-zi-svynynoyu/","priceCheckedAt":"2026-08-11","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"},{"id":"su-holubtsi-z-indychkoyu-ta-kurkoyu","producer":"samudoma","category":"holubtsi","name":"Голубці з індичкою та куркою","packWeight":1000,"packPrice":259,"pricePerKg":259.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/golubci-z-indychkoyu-ta-kurkoyu/","priceCheckedAt":"2026-08-11","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"},{"id":"su-kotleta-kuryacha-z-syrom-motsarela-ta-hrybamy","producer":"samudoma","category":"kotlety","name":"Котлета куряча з сиром Моцарела та грибами","packWeight":1000,"packPrice":257,"pricePerKg":257.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/kuryacha-z-grybamy-ta-mocarelloyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-pelmeni-zi-svynynoyu-ta-yalovychynoyu","producer":"samudoma","category":"pelmeni","name":"Пельмені зі свининою та яловичиною","packWeight":1000,"packPrice":236,"pricePerKg":236.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/pelmeni-zi-svynynoyu-ta-yalovychynoyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-zrazy-z-kapustoyu","producer":"samudoma","category":"zrazy","name":"Зрази з капустою","packWeight":1000,"packPrice":153,"pricePerKg":153.0,"portion":180,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/zrazy-z-kapustoyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"},{"id":"su-benderyky-z-kurkoyu-ta-tverdym-syrom","producer":"samudoma","category":"mlyntsi","name":"Бендерики з куркою та твердим сиром","packWeight":1000,"packPrice":245,"pricePerKg":245.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/kuryachi-benderyky-z-kurkoyu-ta-tverdym-syrom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-varenyky-z-kartopleyu-bekonom-ta-tsybuleyu","producer":"samudoma","category":"varenyky","name":"Вареники з картоплею, беконом та цибулею","packWeight":1000,"packPrice":173,"pricePerKg":173.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-bekonom-ta-cybuleyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-kotleta-kuryacha","producer":"samudoma","category":"kotlety","name":"Котлета куряча","packWeight":1000,"packPrice":285,"pricePerKg":285.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/kotleta-kuryacha/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-zrazy-z-myasom","producer":"samudoma","category":"zrazy","name":"Зрази з м'ясом","packWeight":1000,"packPrice":194,"pricePerKg":194.0,"portion":180,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/zrazy-z-myasom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"},{"id":"su-pisna-rybna-kotleta","producer":"samudoma","category":"kotlety","name":"Пісна рибна котлета","packWeight":1000,"packPrice":352,"pricePerKg":352.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/pisna-rybna-kotleta/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-pelmeni-z-indychkoyu","producer":"samudoma","category":"pelmeni","name":"Пельмені з індичкою","packWeight":1000,"packPrice":223,"pricePerKg":223.0,"portion":250,"nutrition100":{"kcal":189,"protein":12.33,"fat":4.94,"carbs":24.13},"nutritionSource":"label","url":"https://delivery.samudoma.com.ua/product/pelmeni-z-indychkoyu/","priceCheckedAt":"2026-08-11","composition":"Борошно в/с, м'ясо індиче, вершки кулінарні, вода, яйця, цибуля, олія, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-varenyky-z-vyshneyu","producer":"samudoma","category":"varenyky","name":"Вареники з вишнею","packWeight":1000,"packPrice":265,"pricePerKg":265.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-z-vyshneyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-mlyntsi-z-yablukamy-ta-korytseyu","producer":"samudoma","category":"mlyntsi","name":"Млинці з яблуками та корицею","packWeight":1000,"packPrice":183,"pricePerKg":183.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-yablukami-ta-koryceyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-pelmeni-z-kurkoyu","producer":"samudoma","category":"pelmeni","name":"Пельмені з куркою","packWeight":1000,"packPrice":216,"pricePerKg":216.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/pelmeni-z-kurkoyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-lazanya-bolonyeze","producer":"samudoma","category":"shef","name":"Лазанья «Болоньєзе»","packWeight":1000,"packPrice":243,"pricePerKg":243.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/lazanya-bolonyeze/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"},{"id":"su-mlyntsi-z-kurkoyu-ta-hrybamy","producer":"samudoma","category":"mlyntsi","name":"Млинці з куркою та грибами","packWeight":1000,"packPrice":312,"pricePerKg":312.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-kurkoyu-ta-grybamy/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-ovochevyj-sup-z-frykadelkamy","producer":"samudoma","category":"supy","name":"Овочевий суп з фрикадельками","packWeight":1000,"packPrice":212,"pricePerKg":212.0,"portion":275,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/ovochevij-sup-z-frykadelkamy/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Борщ.png"},{"id":"su-pertsi-zi-svynynoyu-ta-yalovychynoyu","producer":"samudoma","category":"holubtsi","name":"Перці зі свининою та яловичиною","packWeight":1000,"packPrice":290,"pricePerKg":290.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/perci-zi-svynynoyu-ta-yalovychynoyu/","priceCheckedAt":"2026-08-11","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"},{"id":"su-pelmeni-tsezar-z-kurkoyu-ta-bekonom","producer":"samudoma","category":"pelmeni","name":"Пельмені «Цезар» (з куркою та беконом)","packWeight":1000,"packPrice":234,"pricePerKg":234.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/pelmeni-cezar/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-benderyky-z-myasom","producer":"samudoma","category":"mlyntsi","name":"Бендерики з м'ясом","packWeight":1000,"packPrice":255,"pricePerKg":255.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/benderyky-z-myasom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-kotleta-rybna-po-domashnomu","producer":"samudoma","category":"kotlety","name":"Котлета рибна по-домашньому","packWeight":1000,"packPrice":319,"pricePerKg":319.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/kotleta-rybna-po-domashnomu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-varenyky-z-kapustoyu","producer":"samudoma","category":"varenyky","name":"Вареники з капустою","packWeight":1000,"packPrice":157,"pricePerKg":157.0,"portion":250,"nutrition100":{"kcal":126,"protein":3.83,"fat":1.77,"carbs":25.0},"nutritionSource":"label","url":"https://delivery.samudoma.com.ua/product/varenyky-z-kapustoyu/","priceCheckedAt":"2026-08-11","composition":"Борошно в/с, капуста білокачанна тушкована, цибуля смажена, вода, яйця, олія, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-domashni-syrnyky-z-zelennyu","producer":"samudoma","category":"syrnyky","name":"Домашні сирники з зеленню","packWeight":1000,"packPrice":285,"pricePerKg":285.0,"portion":150,"nutrition100":{"kcal":150,"protein":16.23,"fat":6.15,"carbs":7.61},"nutritionSource":"label","url":"https://delivery.samudoma.com.ua/product/domashni-sirniki-z-zelennyu/","priceCheckedAt":"2026-08-11","composition":"Борошно в/г, олія, яйця, сир кисломолочний, моцарела твердий, кріп, сіль, перець","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"},{"id":"su-chebureky-z-myasom","producer":"samudoma","category":"chebureky","name":"Чебуреки з м'ясом","packWeight":1000,"packPrice":247,"pricePerKg":247.0,"portion":150,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/chebureky-z-myasom/","priceCheckedAt":"2026-08-11","cooking":"Трохи розморозити, смажити на олії з двох боків","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"},{"id":"su-sous-dlya-tushkuvannya","producer":"samudoma","category":"shef","name":"Соус для тушкування","packWeight":1000,"packPrice":182,"pricePerKg":182.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/sous-dlya-tushkuvannya/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"},{"id":"su-pelmeni-zi-svynynoyu","producer":"samudoma","category":"pelmeni","name":"Пельмені зі свининою","packWeight":1000,"packPrice":226,"pricePerKg":226.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/pelmeni-zi-svynynoyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-mlyntsi-z-syrom-ta-vanillyu","producer":"samudoma","category":"mlyntsi","name":"Млинці з сиром та ваніллю","packWeight":1000,"packPrice":203,"pricePerKg":203.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-sirom-ta-vanillyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-pelmeni-try-myasa-yalovychyna-svynyna-kurka","producer":"samudoma","category":"pelmeni","name":"Пельмені «Три м'яса» (яловичина, свинина, курка)","packWeight":1000,"packPrice":315,"pricePerKg":315.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/pelmeni-try-myasa/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-kuryacha-kotleta-po-kyyivsky","producer":"samudoma","category":"kotlety","name":"Куряча котлета «По-київськи»","packWeight":1000,"packPrice":529,"pricePerKg":529.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/kuryacha-kotleta-po-kiyivski/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-khinkali-z-yalovychynoyu-ta-svynynoyu","producer":"samudoma","category":"pelmeni","name":"Хінкалі з яловичиною та свининою","packWeight":1000,"packPrice":247,"pricePerKg":247.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/hinkali-z-yalovychynoyu-ta-svynynoyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-teftelya-myasna","producer":"samudoma","category":"kotlety","name":"Тефтеля м'ясна","packWeight":1000,"packPrice":262,"pricePerKg":262.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/teftelya-myasna/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-chebureky-z-syrom-ta-zelennyu","producer":"samudoma","category":"chebureky","name":"Чебуреки з сиром та зеленню","packWeight":1000,"packPrice":251,"pricePerKg":251.0,"portion":150,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/chebureky-z-syrom-ta-zelennyu/","priceCheckedAt":"2026-08-11","cooking":"Трохи розморозити, смажити на олії з двох боків","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"},{"id":"su-chebureky-z-kurcham-bekonom-ta-parmezanom","producer":"samudoma","category":"chebureky","name":"Чебуреки з курчам, беконом та пармезаном","packWeight":1000,"packPrice":245,"pricePerKg":245.0,"portion":150,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/chebureky-z-kurcham-bekonom-ta-parmezanom/","priceCheckedAt":"2026-08-11","cooking":"Трохи розморозити, смажити на олії з двох боків","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"},{"id":"su-pertsi-z-kurcham-ta-bekonom","producer":"samudoma","category":"holubtsi","name":"Перці з курчам та беконом","packWeight":1000,"packPrice":285,"pricePerKg":285.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/perci-z-kurcham-ta-bekonom/","priceCheckedAt":"2026-08-11","cooking":"Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"},{"id":"su-kolorovi-pelmeni-z-kurkoyu-ta-svynynoyu","producer":"samudoma","category":"pelmeni","name":"Кольорові пельмені з куркою та свининою","packWeight":1000,"packPrice":226,"pricePerKg":226.0,"portion":250,"nutrition100":{"kcal":198,"protein":9.9,"fat":6.44,"carbs":25.69},"nutritionSource":"label","url":"https://delivery.samudoma.com.ua/product/kolorovi-pelmeni-z-kurkoyu-ta-svynynoyu/","priceCheckedAt":"2026-08-11","composition":"Борошно в/с, свинина знежилена, філе куряче, цибуля, олія, яйця, буряк, морква, шпинат, сіль, перець","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-mlyntsi-z-myasom","producer":"samudoma","category":"mlyntsi","name":"Млинці з м'ясом","packWeight":1000,"packPrice":299,"pricePerKg":299.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-myasom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-varenyky-z-domashnim-syrom-ta-vanillyu","producer":"samudoma","category":"varenyky","name":"Вареники з домашнім сиром та ваніллю","packWeight":1000,"packPrice":187,"pricePerKg":187.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-z-domashnim-syrom-ta-vanillyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-mlyntsi-z-tomlenym-yazykom","producer":"samudoma","category":"mlyntsi","name":"Млинці з томленим язиком","packWeight":1000,"packPrice":238,"pricePerKg":238.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-tomlenym-yazykom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-borshch-chervonyj","producer":"samudoma","category":"supy","name":"Борщ червоний","packWeight":1000,"packPrice":187,"pricePerKg":187.0,"portion":275,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/borsh-chervonij/","priceCheckedAt":"2026-08-11","cooking":"Розігріти","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Борщ.png"},{"id":"su-mlyntsi-z-kopchenoyu-shynkoyu-ta-syrom","producer":"samudoma","category":"mlyntsi","name":"Млинці з копченою шинкою та сиром","packWeight":1000,"packPrice":339,"pricePerKg":339.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-kopchenoyu-shynkoyu-ta-syrom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-varenyky-z-liverom","producer":"samudoma","category":"varenyky","name":"Вареники з лівером","packWeight":1000,"packPrice":181,"pricePerKg":181.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-z-liverom/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-mlyntsi-z-makom-ta-vyshnyamy","producer":"samudoma","category":"mlyntsi","name":"Млинці з маком та вишнями","packWeight":1000,"packPrice":262,"pricePerKg":262.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-makom-ta-vishnyami/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-varenyky-z-myasom","producer":"samudoma","category":"varenyky","name":"Вареники з м'ясом","packWeight":1000,"packPrice":276,"pricePerKg":276.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-z-myasom/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-kotlety-zi-svynyny","producer":"samudoma","category":"kotlety","name":"Котлети зі свинини","packWeight":1000,"packPrice":265,"pricePerKg":265.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/kotleti-zi-svinini/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-khachapuri-z-syrom","producer":"samudoma","category":"shef","name":"Хачапурі з сиром","packWeight":1000,"packPrice":315,"pricePerKg":315.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/hachapuri-z-syrom/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"},{"id":"su-zrazy-z-liverom","producer":"samudoma","category":"zrazy","name":"Зрази з лівером","packWeight":1000,"packPrice":165,"pricePerKg":165.0,"portion":180,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/zrazy-z-liverom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"},{"id":"su-domashni-syrnyky-z-rodzynkamy","producer":"samudoma","category":"syrnyky","name":"Домашні сирники з родзинками","packWeight":1000,"packPrice":230,"pricePerKg":230.0,"portion":150,"nutrition100":{"kcal":217,"protein":11.45,"fat":9.5,"carbs":22.14},"nutritionSource":"label","url":"https://delivery.samudoma.com.ua/product/domashni-syrnyky-z-rodzynkamy/","priceCheckedAt":"2026-08-11","composition":"Сир кисломолочний, борошно в/с, яйця (жовток), родзинки, цукор білий, цукор ванільний","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"},{"id":"su-benderyky-z-domashnim-syrom-ta-motsarelloyu","producer":"samudoma","category":"mlyntsi","name":"Бендерики з домашнім сиром та Моцареллою","packWeight":1000,"packPrice":255,"pricePerKg":255.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/syrni-benderyky-z-domashnim-syrom-ta-mocarelloyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-mitboly-z-indychky-z-tverdym-syrom","producer":"samudoma","category":"kotlety","name":"Мітболи з індички з твердим сиром","packWeight":1000,"packPrice":381,"pricePerKg":381.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mitboly-z-indychky/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-varenyky-z-solonym-domashnim-syrom","producer":"samudoma","category":"varenyky","name":"Вареники з солоним домашнім сиром","packWeight":1000,"packPrice":190,"pricePerKg":190.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-z-soloniym-domashnim-syrom/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-frykadelky","producer":"samudoma","category":"kotlety","name":"Фрикадельки","packWeight":1000,"packPrice":315,"pricePerKg":315.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/frykadelky/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-varenyky-z-kartopleyu-ta-syrom","producer":"samudoma","category":"varenyky","name":"Вареники з картоплею та сиром","packWeight":1000,"packPrice":157,"pricePerKg":157.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-ta-syrom/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-varenyky-z-kartopleyu-ta-hrybamy","producer":"samudoma","category":"varenyky","name":"Вареники з картоплею та грибами","packWeight":1000,"packPrice":171,"pricePerKg":171.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-ta-grybamy/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-mlyntsi-z-syrom-ta-lokhynoyu","producer":"samudoma","category":"mlyntsi","name":"Млинці з сиром та лохиною","packWeight":1000,"packPrice":213,"pricePerKg":213.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-syrom-ta-lohinoyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-mlyntsi-z-brynzoyu-ta-zelennyu","producer":"samudoma","category":"mlyntsi","name":"Млинці з бринзою та зеленню","packWeight":1000,"packPrice":243,"pricePerKg":243.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-brynzoyu-ta-zelennyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-linyvi-varenyky-po-domashnomu","producer":"samudoma","category":"varenyky","name":"Ліниві вареники по-домашньому","packWeight":1000,"packPrice":244,"pricePerKg":244.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/linivi-varenyky-po-domashnomu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-domashni-syrnyky-z-makovoyu-nachynkoyu","producer":"samudoma","category":"syrnyky","name":"Домашні сирники з маковою начинкою","packWeight":1000,"packPrice":240,"pricePerKg":240.0,"portion":150,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/syrnyky-z-makom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"},{"id":"su-mlyntsi-shokoladni-z-domashnim-syrom-ta-shokolad","producer":"samudoma","category":"mlyntsi","name":"Млинці шоколадні з домашнім сиром та шоколадом","packWeight":1000,"packPrice":241,"pricePerKg":241.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/shokoladni-mlynci-z-domashnim-syrom-ta-shokoladom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-domashni-syrnyky-z-lokhynoyu","producer":"samudoma","category":"syrnyky","name":"Домашні сирники з лохиною","packWeight":1000,"packPrice":269,"pricePerKg":269.0,"portion":150,"nutrition100":{"kcal":199,"protein":10.96,"fat":8.76,"carbs":19.56},"nutritionSource":"label","url":"https://delivery.samudoma.com.ua/product/domashni-sirniki-z-lohinoyu/","priceCheckedAt":"2026-08-11","composition":"Сир кисломолочний, борошно в/с, яйця (жовток), лохина с/м, цукор білий, цукор ванільний","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"},{"id":"su-varenyky-z-kartopleyu-ta-zelennyu","producer":"samudoma","category":"varenyky","name":"Вареники з картоплею та зеленню","packWeight":1000,"packPrice":152,"pricePerKg":152.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-ta-zelennyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-mlyntsi-4-syry","producer":"samudoma","category":"mlyntsi","name":"Млинці «4 сири»","packWeight":1000,"packPrice":290,"pricePerKg":290.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-4-syry/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-khinkali-z-baranynoyu-ta-skhidnymy-spetsiyamy","producer":"samudoma","category":"pelmeni","name":"Хінкалі з бараниною та східними спеціями","packWeight":1000,"packPrice":335,"pricePerKg":335.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/hinkali-z-baraninoyu-ta-shidnimi-speciyami/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-domashni-syrnyky-4-syry","producer":"samudoma","category":"syrnyky","name":"Домашні сирники «4 сири»","packWeight":1000,"packPrice":435,"pricePerKg":435.0,"portion":150,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/domashni-syrnyky-4-syry/","priceCheckedAt":"2026-08-11","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"},{"id":"su-krokety-kartoplyani","producer":"samudoma","category":"zrazy","name":"Крокети картопляні","packWeight":1000,"packPrice":173,"pricePerKg":173.0,"portion":180,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/krokety-kartoplyani/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"},{"id":"su-nahetsy-kuryachi-v-panirovtsi","producer":"samudoma","category":"kotlety","name":"Нагетси курячі в паніровці","packWeight":1000,"packPrice":465,"pricePerKg":465.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/nagetsy-kuryachi-v-panirovci-kg/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-mlyntsi-z-myasom-a-lya-bolonyeze","producer":"samudoma","category":"mlyntsi","name":"Млинці з м'ясом «А-ля Болоньєзе»","packWeight":1000,"packPrice":232,"pricePerKg":232.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-myasom-lya-bolonyeze/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-domashni-syrnyky-z-shokoladnoyu-pastoyu","producer":"samudoma","category":"syrnyky","name":"Домашні сирники з шоколадною пастою","packWeight":1000,"packPrice":308,"pricePerKg":308.0,"portion":150,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/domashni-syrnyky-z-shokoladnoyu-pastoyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"},{"id":"su-mlyntsi-z-vyshneyu","producer":"samudoma","category":"mlyntsi","name":"Млинці з вишнею","packWeight":1000,"packPrice":450,"pricePerKg":450.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-vyshneyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-chebureky-z-baranynoyu-ta-skhidnymy-spetsiyamy","producer":"samudoma","category":"chebureky","name":"Чебуреки з бараниною та східними спеціями","packWeight":1000,"packPrice":336,"pricePerKg":336.0,"portion":150,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/chebureky-z-baranynoyu-ta-shidnymy-speciyamy/","priceCheckedAt":"2026-08-11","cooking":"Трохи розморозити, смажити на олії з двох боків","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"},{"id":"su-mlyntsi-z-bananom-ta-shokoladom","producer":"samudoma","category":"mlyntsi","name":"Млинці з бананом та шоколадом","packWeight":1000,"packPrice":280,"pricePerKg":280.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlynci-z-bananom-ta-shokoladom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-mlyntsi-z-liverom","producer":"samudoma","category":"mlyntsi","name":"Млинці з лівером","packWeight":1000,"packPrice":199,"pricePerKg":199.0,"portion":200,"nutrition100":{"kcal":212,"protein":9.17,"fat":12.23,"carbs":16.49},"nutritionSource":"label","url":"https://delivery.samudoma.com.ua/product/mlynci-z-liverom/","priceCheckedAt":"2026-08-11","composition":"Борошно в/с, серце свинне, легені свинні, сало, молоко, цибуля, яйця, масло вершкове, олія, вода, сіль, перець","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"},{"id":"su-kruchenyky-z-kurcham-ta-bekonom","producer":"samudoma","category":"kotlety","name":"Крученики з курчам та беконом","packWeight":1000,"packPrice":420,"pricePerKg":420.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/kruchenyky-z-kurcham-ta-bekonom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-kotlety-zi-svynyny-ta-yalovychyny","producer":"samudoma","category":"kotlety","name":"Котлети зі свинини та яловичини","packWeight":1000,"packPrice":365,"pricePerKg":365.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/kotlety-zi-svynyny-ta-yalovychyny/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-domashni-syrnyky-z-solonoyu-karamellyu","producer":"samudoma","category":"syrnyky","name":"Домашні сирники з солоною карамеллю","packWeight":1000,"packPrice":246,"pricePerKg":246.0,"portion":150,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/domashni-syrnyky-z-solonoyu-karamellyu/","priceCheckedAt":"2026-08-11","cooking":"Розморозити, смажити на олії; або запекти в духовці зі шматочком масла","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"},{"id":"su-varenyky-zi-shpynatom-ta-motsareloyu","producer":"samudoma","category":"varenyky","name":"Вареники зі шпинатом та моцарелою","packWeight":1000,"packPrice":259,"pricePerKg":259.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/varenyky-zi-shpynatom-ta-mocareloyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"},{"id":"su-khinkali-z-brynzoyu-syrom-tomatamy-ta-zelennyu","producer":"samudoma","category":"pelmeni","name":"Хінкалі з бринзою, сиром, томатами та зеленню","packWeight":1000,"packPrice":281,"pricePerKg":281.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/hinkali-z-brynzoyu-syrom-tomatami-ta-zelennyu/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-lazanya-proshutto-funhi","producer":"samudoma","category":"shef","name":"Лазанья «Прошутто Фунгі»","packWeight":1000,"packPrice":277,"pricePerKg":277.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/lazanya-proshutto-fungi/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"},{"id":"su-khachapuri-z-shynkoyu-ta-syrom","producer":"samudoma","category":"shef","name":"Хачапурі з шинкою та сиром","packWeight":1000,"packPrice":375,"pricePerKg":375.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/hachapuri-z-shynkoyu-ta-syrom/","priceCheckedAt":"2026-08-11","cooking":"Запікати в духовці","photo":"https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"},{"id":"su-pelmeni-z-baranynoyu-ta-skhidnymy-spetsiyamy","producer":"samudoma","category":"pelmeni","name":"Пельмені з бараниною та східними спеціями","packWeight":1000,"packPrice":345,"pricePerKg":345.0,"portion":250,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/pelmeni-z-baranynoyu-ta-shidnymy-speciyami/","priceCheckedAt":"2026-08-11","cooking":"Опустити замороженими в киплячу підсолену воду, варити до готовності","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"},{"id":"su-kruchenyky-zi-svynynoyu-ta-hrybamy","producer":"samudoma","category":"kotlety","name":"Крученики зі свининою та грибами","packWeight":1000,"packPrice":495,"pricePerKg":495.0,"portion":100,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/kruchenyky-zi-svynynoyu-ta-grybamy/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"},{"id":"su-mlyntsi-shpynatni-z-krem-syrom","producer":"samudoma","category":"mlyntsi","name":"Млинці шпинатні з крем сиром","packWeight":1000,"packPrice":363,"pricePerKg":363.0,"portion":200,"nutritionSource":"unknown","url":"https://delivery.samudoma.com.ua/product/mlinci-shpinatni-z-krem-syrom/","priceCheckedAt":"2026-08-11","cooking":"Розморозити при кімнатній температурі, смажити на олії на невеликому вогні","photo":"https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"}]};
+
+/* ── синхронізація: той самий Supabase-проєкт, що й Videoprokat, ──
+   таблиці з префіксом mrz_. Код кімнати (room) заміняє логін —
+   той самий підхід, що вже працює в Videoprokat. ── */
+const SUPABASE_URL = "https://oemtatnfceeixqdkjzdn.supabase.co";
+const SUPABASE_KEY  = "sb_publishable_FpoDDhkZDRwngrVpReesIA_-y-RaLlv";
+const ROOMKEY = 'morozylka.room';
+const getRoom = () => (localStorage.getItem(ROOMKEY) || '').trim();
+function setRoom(v){
+  v = (v || '').trim();
+  if (v) localStorage.setItem(ROOMKEY, v); else localStorage.removeItem(ROOMKEY);
+}
+function pgHeaders(extra){
+  return Object.assign({
+    apikey: SUPABASE_KEY,
+    Authorization: 'Bearer ' + SUPABASE_KEY,
+    'Content-Type': 'application/json',
+  }, extra || {});
+}
+async function pg(path, opts){
+  opts = opts || {};
+  const res = await fetch(SUPABASE_URL + '/rest/v1' + path, Object.assign({}, opts, {
+    headers: pgHeaders(opts.headers)
+  }));
+  if (!res.ok) throw new Error('sb ' + res.status + ': ' + (await res.text()).slice(0, 200));
+  const t = await res.text();
+  return t ? JSON.parse(t) : null;
+}
+const todayISO = () => new Date().toISOString().slice(0, 10);
+
+const SORTS = [
+  {id:'pp',   label:'ціна порції ↑', fn:(a,b)=>a._pp-b._pp},
+  {id:'kg',   label:'ціна за кг ↑',  fn:(a,b)=>a.pricePerKg-b.pricePerKg},
+  {id:'prot', label:'білок ↓',       fn:(a,b)=>(b._n?b._n.protein:-1)-(a._n?a._n.protein:-1)},
+  {id:'kcal', label:'ккал ↑',        fn:(a,b)=>(a._n?a._n.kcal:1e9)-(b._n?b._n.kcal:1e9)},
+  {id:'name', label:'за назвою',     fn:(a,b)=>a.name.localeCompare(b.name,'uk')},
+];
+
+const CATS = Object.fromEntries(DATA.categories.map(c=>[c.id,c.name]));
+const PROD = DATA.producers;
+
+/* похідні величини рахуємо один раз */
+const ITEMS = DATA.items.map(it=>{
+  const portions = it.portionsPerPackOverride || (it.packWeight/it.portion);
+  const pp = it.portionsPerPackOverride
+    ? it.packPrice/it.portionsPerPackOverride
+    : it.pricePerKg*it.portion/1000;
+  const n = it.nutrition100 ? {
+    kcal:    Math.round(it.nutrition100.kcal    * it.portion/100),
+    protein: Math.round(it.nutrition100.protein * it.portion/100),
+    fat:     Math.round(it.nutrition100.fat     * it.portion/100),
+    carbs:   Math.round(it.nutrition100.carbs   * it.portion/100),
+  } : null;
+  return Object.assign({}, it, {_pp:pp, _portions:portions, _n:n,
+    _hay:(it.name+' '+(it.composition||'')).toLowerCase()});
+});
+
+const FAVKEY='morozylka.fav';
+let fav = new Set(JSON.parse(localStorage.getItem(FAVKEY)||'[]'));
+const saveFav=()=>localStorage.setItem(FAVKEY,JSON.stringify([...fav]));
+
+async function pullFavorites(){
+  const room = getRoom(); if (!room) return;
+  try{
+    const rows = await pg('/mrz_favorites?room=eq.' + encodeURIComponent(room) + '&select=item_id');
+    fav = new Set(rows.map(r => r.item_id));
+    saveFav();
+  }catch(e){ console.warn('favorites pull failed', e); }
+}
+function pushFavorite(id, on){
+  const room = getRoom(); if (!room) return;
+  const p = on
+    ? pg('/mrz_favorites', {method:'POST', headers:{Prefer:'resolution=merge-duplicates'},
+        body: JSON.stringify({room, item_id:id})})
+    : pg('/mrz_favorites?room=eq.'+encodeURIComponent(room)+'&item_id=eq.'+encodeURIComponent(id), {method:'DELETE'});
+  p.catch(e => console.warn('favorite sync failed', e));
+}
+
+/* ── морозилка: залишки ──────────────────── */
+const PANTRYKEY = 'morozylka.pantry';
+let pantry = JSON.parse(localStorage.getItem(PANTRYKEY) || '[]');
+const savePantryCache = () => localStorage.setItem(PANTRYKEY, JSON.stringify(pantry));
+const findCatalogItem = id => ITEMS.find(i => i.id === id);
+
+async function loadPantry(){
+  const room = getRoom(); if (!room) return;
+  try{
+    const rows = await pg('/mrz_pantry?room=eq.' + encodeURIComponent(room) + '&order=updated_at.desc&select=*');
+    pantry = rows;
+    savePantryCache();
+  }catch(e){ console.warn('pantry pull failed', e); }
+}
+async function addToPantry(itemId){
+  const it = findCatalogItem(itemId); if (!it) return;
+  const existing = pantry.find(p => p.item_id === itemId);
+  if (existing){ await adjustPantryGrams(existing, it.packWeight); return; }
+  const room = getRoom();
+  const draft = {item_id:itemId, grams_left:it.packWeight, bought_at:todayISO(), updated_at:new Date().toISOString()};
+  if (room){
+    try{
+      const saved = await pg('/mrz_pantry', {method:'POST', headers:{Prefer:'return=representation'},
+        body: JSON.stringify(Object.assign({room}, draft))});
+      pantry.unshift(saved[0]);
+    }catch(e){ console.warn('pantry add sync failed', e); pantry.unshift(Object.assign({id:'local-'+Date.now()}, draft)); }
+  } else {
+    pantry.unshift(Object.assign({id:'local-'+Date.now()}, draft));
+  }
+  savePantryCache(); renderPantry();
+}
+async function adjustPantryGrams(row, delta){
+  row.grams_left = Math.max(0, row.grams_left + delta);
+  row.updated_at = new Date().toISOString();
+  const room = getRoom();
+  if (room && !String(row.id).startsWith('local-')){
+    try{ await pg('/mrz_pantry?id=eq.'+row.id, {method:'PATCH',
+      body: JSON.stringify({grams_left: row.grams_left, updated_at: row.updated_at})}); }
+    catch(e){ console.warn('pantry adjust sync failed', e); }
+  }
+  savePantryCache(); renderPantry();
+}
+async function removeFromPantry(row){
+  pantry = pantry.filter(p => p.id !== row.id);
+  const room = getRoom();
+  if (room && !String(row.id).startsWith('local-')){
+    try{ await pg('/mrz_pantry?id=eq.'+row.id, {method:'DELETE'}); }
+    catch(e){ console.warn('pantry remove sync failed', e); }
+  }
+  savePantryCache(); renderPantry();
+}
+function openRoomEditor(){
+  const cur = getRoom();
+  const val = prompt('Код синхронізації (8+ символів, той самий на обох телефонах):', cur);
+  if (val === null) return;
+  const trimmed = val.trim();
+  if (trimmed && trimmed.length < 8){ alert('Потрібно мінімум 8 символів.'); return; }
+  setRoom(trimmed);
+  Promise.all([pullFavorites(), loadPantry(), loadSides(), loadMenu(), loadShopping()]).then(()=>{
+    render(); renderPantry(); renderWeekNav(); renderDay(); renderShopping();
+  });
+}
+
+/* ── тиждень: гарніри ─────────────────────── */
+const SIDESKEY = 'morozylka.sides';
+let sides = JSON.parse(localStorage.getItem(SIDESKEY) || '[]');
+const saveSidesCache = () => localStorage.setItem(SIDESKEY, JSON.stringify(sides));
+async function loadSides(){
+  const room = getRoom(); if (!room) return;
+  try{
+    sides = await pg('/mrz_sides?room=eq.' + encodeURIComponent(room) + '&select=*&order=name.asc');
+    saveSidesCache();
+  }catch(e){ console.warn('sides pull failed', e); }
+}
+async function createSide(name, defaultGrams, kcal, protein, fat, carbs){
+  const room = getRoom();
+  const draft = {name, default_grams:defaultGrams, kcal_100:kcal, protein_100:protein, fat_100:fat, carbs_100:carbs};
+  if (room){
+    try{
+      const saved = await pg('/mrz_sides', {method:'POST', headers:{Prefer:'return=representation'},
+        body: JSON.stringify(Object.assign({room}, draft))});
+      sides.push(saved[0]);
+    }catch(e){ console.warn('side create sync failed', e); sides.push(Object.assign({id:'local-'+Date.now()}, draft)); }
+  } else {
+    sides.push(Object.assign({id:'local-'+Date.now()}, draft));
+  }
+  sides.sort((a,b)=>a.name.localeCompare(b.name,'uk'));
+  saveSidesCache();
+}
+
+/* ── тиждень: меню ───────────────────────── */
+const MENUKEY = 'morozylka.menu';
+let menu = JSON.parse(localStorage.getItem(MENUKEY) || '[]');
+const saveMenuCache = () => localStorage.setItem(MENUKEY, JSON.stringify(menu));
+async function loadMenu(){
+  const room = getRoom(); if (!room) return;
+  try{
+    menu = await pg('/mrz_menu?room=eq.' + encodeURIComponent(room) + '&select=*');
+    saveMenuCache();
+  }catch(e){ console.warn('menu pull failed', e); }
+}
+async function addMenuEntry(refType, refId, grams){
+  const room = getRoom();
+  const draft = {date:selectedDate, meal:currentAddMeal, ref_type:refType, ref_id:refId, grams:Math.round(grams), eaten:false};
+  if (room){
+    try{
+      const saved = await pg('/mrz_menu', {method:'POST', headers:{Prefer:'return=representation'},
+        body: JSON.stringify(Object.assign({room}, draft))});
+      menu.push(saved[0]);
+    }catch(e){ console.warn('menu add sync failed', e); menu.push(Object.assign({id:'local-'+Date.now()}, draft)); }
+  } else {
+    menu.push(Object.assign({id:'local-'+Date.now()}, draft));
+  }
+  saveMenuCache(); renderDay(); closeSheet();
+}
+async function toggleEaten(id){
+  const e = menu.find(m => m.id === id); if (!e) return;
+  const next = !e.eaten;
+  e.eaten = next;
+  if (next && e.ref_type === 'item'){
+    const pr = pantry.find(p => p.item_id === e.ref_id);
+    if (pr) await adjustPantryGrams(pr, -e.grams);
+  }
+  const room = getRoom();
+  if (room && !String(id).startsWith('local-')){
+    try{ await pg('/mrz_menu?id=eq.'+id, {method:'PATCH', body: JSON.stringify({eaten:next})}); }
+    catch(err){ console.warn('menu eaten sync failed', err); }
+  }
+  saveMenuCache(); renderDay();
+}
+async function removeMenuEntry(id){
+  menu = menu.filter(m => m.id !== id);
+  const room = getRoom();
+  if (room && !String(id).startsWith('local-')){
+    try{ await pg('/mrz_menu?id=eq.'+id, {method:'DELETE'}); }
+    catch(e){ console.warn('menu remove sync failed', e); }
+  }
+  saveMenuCache(); renderDay();
+}
+
+/* ── закупівля ────────────────────────────── */
+const SHOPKEY = 'morozylka.shopping';
+let shopping = JSON.parse(localStorage.getItem(SHOPKEY) || '[]');
+const saveShoppingCache = () => localStorage.setItem(SHOPKEY, JSON.stringify(shopping));
+async function loadShopping(){
+  const room = getRoom(); if (!room) return;
+  try{
+    shopping = await pg('/mrz_shopping?room=eq.' + encodeURIComponent(room) + '&select=*');
+    saveShoppingCache();
+  }catch(e){ console.warn('shopping pull failed', e); }
+}
+async function addToShoppingList(itemId){
+  const existing = shopping.find(s => s.item_id === itemId);
+  if (existing){ await adjustShoppingPacks(existing, 1); return; }
+  const room = getRoom();
+  const draft = {item_id:itemId, packs:1, bought:false};
+  if (room){
+    try{
+      const saved = await pg('/mrz_shopping', {method:'POST', headers:{Prefer:'return=representation'},
+        body: JSON.stringify(Object.assign({room}, draft))});
+      shopping.push(saved[0]);
+    }catch(e){ console.warn('shopping add sync failed', e); shopping.push(Object.assign({id:'local-'+Date.now()}, draft)); }
+  } else {
+    shopping.push(Object.assign({id:'local-'+Date.now()}, draft));
+  }
+  saveShoppingCache(); renderShopping();
+}
+async function adjustShoppingPacks(row, delta){
+  const next = Math.max(0, row.packs + delta);
+  if (next === 0){ await removeFromShoppingList(row); return; }
+  row.packs = next;
+  const room = getRoom();
+  if (room && !String(row.id).startsWith('local-')){
+    try{ await pg('/mrz_shopping?id=eq.'+row.id, {method:'PATCH', body: JSON.stringify({packs: row.packs})}); }
+    catch(e){ console.warn('shopping adjust sync failed', e); }
+  }
+  saveShoppingCache(); renderShopping();
+}
+async function removeFromShoppingList(row){
+  shopping = shopping.filter(s => s.id !== row.id);
+  const room = getRoom();
+  if (room && !String(row.id).startsWith('local-')){
+    try{ await pg('/mrz_shopping?id=eq.'+row.id, {method:'DELETE'}); }
+    catch(e){ console.warn('shopping remove sync failed', e); }
+  }
+  saveShoppingCache(); renderShopping();
+}
+async function clearShoppingForProducer(producerKey){
+  const toRemove = shopping.filter(s => { const it=findCatalogItem(s.item_id); return it && it.producer===producerKey; });
+  shopping = shopping.filter(s => !toRemove.includes(s));
+  const room = getRoom();
+  for (const row of toRemove){
+    if (room && !String(row.id).startsWith('local-')){
+      try{ await pg('/mrz_shopping?id=eq.'+row.id, {method:'DELETE'}); }catch(e){ console.warn(e); }
+    }
+  }
+  saveShoppingCache(); renderShopping();
+}
+const PERIODKEY = 'morozylka.shopPeriod';
+let shopPeriod = localStorage.getItem(PERIODKEY) || 'week';
+
+let state={q:'',prod:'all',cat:'all',onlyFav:false,sort:0};
+
+const $=s=>document.querySelector(s);
+const grid=$('#grid'), sheet=$('#sheet'), scrim=$('#scrim');
+const money=v=>v>=100?Math.round(v):v.toFixed(v%1?1:0);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+$('#stamp').textContent = ITEMS.length+' позицій · '+PROD.galya.short+' + '+PROD.samudoma.short;
+$('#checked').textContent = DATA.updatedAt;
+
+/* ── фільтри ─────────────────────────────── */
+function chip(label,pressed,cls,onclick,n){
+  const b=document.createElement('button');
+  b.className='chip'+(cls?' '+cls:'');
+  b.type='button';
+  b.setAttribute('aria-pressed',pressed);
+  b.innerHTML=esc(label)+(n!=null?'<span class="n">'+n+'</span>':'');
+  b.onclick=onclick;
+  return b;
+}
+function buildChips(){
+  const p=$('#prods'); p.innerHTML='';
+  p.append(chip('Усі', state.prod==='all'&&!state.onlyFav,'',()=>{state.prod='all';state.onlyFav=false;render()}));
+  for(const k of ['galya','samudoma']){
+    p.append(chip(PROD[k].name, state.prod===k, k==='galya'?'gb':'su',
+      ()=>{state.prod=state.prod===k?'all':k;render()},
+      ITEMS.filter(i=>i.producer===k).length));
+  }
+  p.append(chip('♥ Обране', state.onlyFav,'fav',()=>{state.onlyFav=!state.onlyFav;render()},fav.size||null));
+
+  const c=$('#cats'); c.innerHTML='';
+  c.append(chip('Всі категорії', state.cat==='all','',()=>{state.cat='all';render()}));
+  for(const cat of DATA.categories){
+    const n=ITEMS.filter(i=>i.category===cat.id).length;
+    if(!n) continue;
+    c.append(chip(cat.name, state.cat===cat.id,'',()=>{state.cat=state.cat===cat.id?'all':cat.id;render()},n));
+  }
+}
+$('#q').addEventListener('input',e=>{state.q=e.target.value.trim().toLowerCase();render()});
+$('#sort').onclick=()=>{state.sort=(state.sort+1)%SORTS.length;render()};
+
+/* ── картка ──────────────────────────────── */
+function card(it){
+  const p = it.producer==='galya'?'gb':'su';
+  const el=document.createElement('article');
+  el.className='card '+p;
+  el.tabIndex=0;
+  el.setAttribute('role','button');
+
+  const packG = it.packWeight>=1000 ? (it.packWeight/1000)+' кг' : it.packWeight+' г';
+  let lab;
+  if(it._n){
+    const t=it._n.protein+it._n.fat+it._n.carbs||1;
+    lab='<div class="row"><span><b>'+it._n.kcal+'</b> ккал</span>'
+      +'<span class="macro"><i>Б<b>'+it._n.protein+'</b></i><i>Ж<b>'+it._n.fat+'</b></i><i>В<b>'+it._n.carbs+'</b></i></span></div>'
+      +'<div class="bar"><span class="p" style="width:'+(it._n.protein/t*100)+'%"></span>'
+      +'<span class="f" style="width:'+(it._n.fat/t*100)+'%"></span>'
+      +'<span class="c" style="width:'+(it._n.carbs/t*100)+'%"></span></div>';
+  }else{
+    lab='<div class="row"><span class="nodata" title="Виробник не вказав харчову цінність">КБЖУ не вказано</span></div>';
+  }
+
+  el.innerHTML=
+    (it.photo ? '<div class="cthumb"><img src="'+it.photo+'" alt="" loading="lazy" onerror="this.closest(\'.cthumb\').remove()"></div>' : '')
+    +'<div class="chead">'
+     +'<span class="badge '+p+'">'+PROD[it.producer].short+'</span>'
+     +'<h3 class="cname">'+esc(it.name)+'</h3>'
+     +'<button class="heart" type="button" aria-pressed="'+fav.has(it.id)+'" aria-label="В обране">'
+       +(fav.has(it.id)?'♥':'♡')+'</button>'
+    +'</div>'
+    +'<div class="pack">'+packG+' · '+money(it.packPrice)+' ₴ · '+Math.round(it.pricePerKg)+' ₴/кг</div>'
+    +'<div class="price"><span class="big">'+money(it._pp)+'</span><span class="cur">₴</span>'
+      +'<span class="per">за порцію '+it.portion+' г · '+(Math.round(it._portions*10)/10)+' порц. з пачки</span></div>'
+    +'<div class="label">'+lab+'</div>';
+
+  el.querySelector('.heart').onclick=e=>{
+    e.stopPropagation();
+    const on = !fav.has(it.id);
+    on ? fav.add(it.id) : fav.delete(it.id);
+    saveFav(); pushFavorite(it.id, on); render();
+  };
+  const open=()=>openSheet(it);
+  el.onclick=open;
+  el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}};
+  return el;
+}
+
+/* ── деталі ──────────────────────────────── */
+function openSheet(it){
+  const p=it.producer==='galya'?'gb':'su';
+  const pr=PROD[it.producer];
+  const n100=it.nutrition100;
+  const srcNote = it.nutritionSource==='label'
+    ? 'з етикетки виробника'
+    : it.nutritionSource==='estimate' ? 'оцінка за схожою позицією' : 'даних немає';
+
+  let nutri='';
+  if(n100){
+    nutri='<table class="nutri"><caption>Харчова цінність · '+srcNote+'</caption>'
+      +'<tr><th></th><td>на 100 г</td><td>порція '+it.portion+' г</td></tr>'
+      +'<tr class="hi"><th>Калорійність</th><td>'+n100.kcal+'</td><td>'+it._n.kcal+' ккал</td></tr>'
+      +'<tr><th>Білки</th><td>'+n100.protein+'</td><td>'+it._n.protein+' г</td></tr>'
+      +'<tr><th>Жири</th><td>'+n100.fat+'</td><td>'+it._n.fat+' г</td></tr>'
+      +'<tr><th>Вуглеводи</th><td>'+n100.carbs+'</td><td>'+it._n.carbs+' г</td></tr>'
+      +'</table>';
+  }else{
+    nutri='<div class="note">Виробник не вказує харчову цінність для цієї позиції. '
+      +'КБЖУ порції порахувати не можна — у меню вона піде без цифр.</div>';
+  }
+
+  sheet.innerHTML=
+    '<div class="grab"></div>'
+    +'<button class="sclose" type="button" aria-label="Закрити">✕</button>'
+    +(it.photo ? '<div class="sthumb"><img src="'+it.photo+'" alt="" loading="lazy" onerror="this.closest(\'.sthumb\').remove()"></div>' : '')
+    +'<div class="shead"><span class="badge '+p+'">'+pr.short+'</span>'
+      +'<h2 class="stitle" id="stitle">'+esc(it.name)+'</h2></div>'
+    +'<dl class="facts">'
+      +'<div class="fact"><dt>Порція</dt><dd>'+money(it._pp)+' ₴ · '+it.portion+' г</dd></div>'
+      +'<div class="fact"><dt>Пачка</dt><dd>'+money(it.packPrice)+' ₴ · '+(it.packWeight>=1000?(it.packWeight/1000)+' кг':it.packWeight+' г')+'</dd></div>'
+      +'<div class="fact"><dt>За кілограм</dt><dd>'+Math.round(it.pricePerKg)+' ₴</dd></div>'
+      +'<div class="fact"><dt>Порцій з пачки</dt><dd>'+(Math.round(it._portions*10)/10)+'</dd></div>'
+    +'</dl>'
+    +nutri
+    +(it.composition?'<div class="sec"><h4>Склад</h4><p>'+esc(it.composition)+'</p></div>':'')
+    +(it.cooking?'<div class="sec"><h4>Приготування</h4><p>'+esc(it.cooking)+'</p></div>':'')
+    +(it.note?'<div class="note">'+esc(it.note)+'</div>':'')
+    +'<button class="addpantry" type="button" id="addshop">+ Додати до списку закупівлі</button>'
+    +'<button class="addpantry" type="button" id="addpantry">+ Додав у морозилку</button>'
+    +'<a class="buy '+p+'" href="'+it.url+'" target="_blank" rel="noopener">Відкрити на сайті '+esc(pr.name)+'</a>'
+    +'<p class="terms">'+esc(pr.note)+'</p>';
+
+  const addShopBtn = sheet.querySelector('#addshop');
+  addShopBtn.onclick = async () => {
+    addShopBtn.disabled = true; const origShop = addShopBtn.textContent;
+    addShopBtn.textContent = 'Додаю…';
+    await addToShoppingList(it.id);
+    addShopBtn.textContent = '✓ Додано до списку';
+    setTimeout(() => { addShopBtn.textContent = origShop; addShopBtn.disabled = false; }, 1300);
+  };
+  const addBtn = sheet.querySelector('#addpantry');
+  addBtn.onclick = async () => {
+    addBtn.disabled = true; const orig = addBtn.textContent;
+    addBtn.textContent = 'Додаю…';
+    await addToPantry(it.id);
+    addBtn.textContent = '✓ Додано в морозилку';
+    setTimeout(() => { addBtn.textContent = orig; addBtn.disabled = false; }, 1300);
+  };
+  sheet.querySelector('.sclose').onclick=closeSheet;
+  sheet.classList.add('on'); scrim.classList.add('on');
+  document.body.style.overflow='hidden';
+  sheet.scrollTop=0;
+  sheet.querySelector('.sclose').focus();
+}
+function closeSheet(){
+  sheet.classList.remove('on'); scrim.classList.remove('on');
+  document.body.style.overflow='';
+}
+scrim.onclick=closeSheet;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
+
+/* ── рендер ──────────────────────────────── */
+function render(){
+  buildChips();
+  const s=SORTS[state.sort];
+  $('#sort').textContent='↕ '+s.label;
+
+  let list=ITEMS.filter(i=>
+       (state.prod==='all'||i.producer===state.prod)
+    && (state.cat==='all'||i.category===state.cat)
+    && (!state.onlyFav||fav.has(i.id))
+    && (!state.q||i._hay.includes(state.q))
+  ).sort(s.fn);
+
+  $('#count').innerHTML='<b>'+list.length+'</b> з '+ITEMS.length;
+  if(list.length){
+    const lo=Math.min(...list.map(i=>i._pp)), hi=Math.max(...list.map(i=>i._pp));
+    $('#range').textContent='порція '+money(lo)+'–'+money(hi)+' ₴';
+  }else $('#range').textContent='';
+
+  grid.innerHTML='';
+  if(!list.length){
+    grid.innerHTML='<div class="empty"><b>Нічого не знайшлось</b>'
+      +(state.onlyFav&&!fav.size?'Позначайте страви серцем — вони збережуться тут.':'Спробуйте прибрати фільтр або змінити запит.')
+      +'</div>';
+    return;
+  }
+  const frag=document.createDocumentFragment();
+  list.forEach(i=>frag.append(card(i)));
+  grid.append(frag);
+}
+
+/* ── морозилка: рендер ───────────────────── */
+function renderPantry(){
+  const room = getRoom();
+  $('#roomStatus').innerHTML = room
+    ? 'Синхронізовано · код <b>'+esc(room)+'</b> · <button class="linklike" id="roomChange" type="button">змінити</button>'
+    : 'Дані лишаються тільки на цьому телефоні · <button class="linklike" id="roomChange" type="button">задати код синхронізації</button>';
+  $('#roomChange').onclick = openRoomEditor;
+  $('#pantryCount').textContent = pantry.length ? (' '+pantry.length) : '';
+
+  const root = $('#pantryList');
+  if (!pantry.length){
+    root.innerHTML = '<div class="empty"><b>Морозилка порожня</b>Натисни «+ Додав у морозилку» на будь-якій картці в каталозі.</div>';
+    return;
+  }
+  const sorted = [...pantry].sort((a,b)=>{
+    const ia=findCatalogItem(a.item_id), ib=findCatalogItem(b.item_id);
+    const pa = ia ? a.grams_left/ia.portion : 999, pb = ib ? b.grams_left/ib.portion : 999;
+    return pa-pb;
+  });
+  root.innerHTML='';
+  const frag=document.createDocumentFragment();
+  sorted.forEach(row=>{
+    const it = findCatalogItem(row.item_id);
+    const el = document.createElement('article');
+    if (!it){
+      el.className='pantry-row';
+      el.innerHTML = '<div class="prow-head"><span class="pname">Позицію прибрано з каталогу</span></div>'
+        +'<div class="pactions"><button class="pbtn del" type="button">✕</button></div>';
+      el.querySelector('.del').onclick=()=>removeFromPantry(row);
+      frag.append(el); return;
+    }
+    const p = it.producer==='galya'?'gb':'su';
+    const portions = Math.round(row.grams_left/it.portion*10)/10;
+    el.className='pantry-row '+p;
+    el.innerHTML =
+      '<div class="prow-head"><span class="pbadge">'+PROD[it.producer].short+'</span>'
+      +'<span class="pname">'+esc(it.name)+'</span></div>'
+      +'<div class="pgrams'+(portions<1?' low':'')+'">'+row.grams_left+' г лишилось · ≈'+portions+' порц.</div>'
+      +'<div class="pactions">'
+        +'<button class="pbtn" type="button" data-a="minus">−1 порція</button>'
+        +'<button class="pbtn" type="button" data-a="plus">+1 пачка</button>'
+        +'<button class="pbtn del" type="button" data-a="del">✕</button>'
+      +'</div>';
+    el.querySelector('[data-a="minus"]').onclick=()=>adjustPantryGrams(row, -it.portion);
+    el.querySelector('[data-a="plus"]').onclick=()=>adjustPantryGrams(row, it.packWeight);
+    el.querySelector('[data-a="del"]').onclick=()=>removeFromPantry(row);
+    frag.append(el);
+  });
+  root.append(frag);
+}
+
+/* ── перемикач вкладок ───────────────────── */
+document.querySelectorAll('.tab').forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected', String(b===btn)));
+    $('#view-catalog').hidden = btn.dataset.view!=='catalog';
+    $('#view-pantry').hidden = btn.dataset.view!=='pantry';
+    $('#view-week').hidden = btn.dataset.view!=='week';
+    $('#view-shop').hidden = btn.dataset.view!=='shop';
+  };
+});
+
+/* ── тиждень: дати ───────────────────────── */
+const MEALS = [['breakfast','Сніданок'],['lunch','Обід'],['dinner','Вечеря']];
+function mondayOf(d){
+  const x = new Date(d); const day = (x.getDay()+6)%7;
+  x.setDate(x.getDate()-day); x.setHours(0,0,0,0);
+  return x;
+}
+const addDays = (d,n) => { const x=new Date(d); x.setDate(x.getDate()+n); return x; };
+const isoDate = d => d.toISOString().slice(0,10);
+function fmtDayLabel(d){
+  const days=['Нд','Пн','Вт','Ср','Чт','Пт','Сб'];
+  const months=['січ','лют','бер','кві','тра','чер','лип','сер','вер','жов','лис','гру'];
+  return {dow:days[d.getDay()], dm:d.getDate()+' '+months[d.getMonth()]};
+}
+let weekStart = mondayOf(new Date());
+let selectedDate = isoDate(new Date());
+let currentAddMeal = null;
+
+function renderWeekNav(){
+  const end = addDays(weekStart,6);
+  $('#weekLabel').textContent = fmtDayLabel(weekStart).dm+' – '+fmtDayLabel(end).dm;
+  const todayIso = isoDate(new Date());
+  const row = $('#dayChips'); row.innerHTML='';
+  for(let i=0;i<7;i++){
+    const d = addDays(weekStart,i), iso = isoDate(d), lbl = fmtDayLabel(d);
+    const btn = document.createElement('button');
+    btn.className='chip daychip'+(iso===todayIso?' today':'');
+    btn.type='button';
+    btn.setAttribute('aria-pressed', String(iso===selectedDate));
+    btn.innerHTML = lbl.dow+'<span class="daynum">'+d.getDate()+'</span>';
+    btn.onclick=()=>{ selectedDate=iso; renderWeekNav(); renderDay(); };
+    row.append(btn);
+  }
+}
+function entryInfo(e){
+  if (e.ref_type==='item'){
+    const it = findCatalogItem(e.ref_id);
+    if (!it) return {name:'Позицію прибрано з каталогу', ok:false};
+    const n = it.nutrition100;
+    return { name:it.name, ok:!!n,
+      kcal:n?n.kcal*e.grams/100:0, protein:n?n.protein*e.grams/100:0,
+      fat:n?n.fat*e.grams/100:0, carbs:n?n.carbs*e.grams/100:0 };
+  }
+  const sd = sides.find(s => s.id===e.ref_id);
+  if (!sd) return {name:'Гарнір видалено', ok:false};
+  const has = sd.kcal_100!=null;
+  return { name:sd.name, ok:has,
+    kcal:has?sd.kcal_100*e.grams/100:0, protein:has?(sd.protein_100||0)*e.grams/100:0,
+    fat:has?(sd.fat_100||0)*e.grams/100:0, carbs:has?(sd.carbs_100||0)*e.grams/100:0 };
+}
+function renderDay(){
+  const root = $('#dayContent');
+  const dayEntries = menu.filter(m => m.date===selectedDate);
+  const totals = {kcal:0,protein:0,fat:0,carbs:0};
+  let html='';
+  MEALS.forEach(([key,label])=>{
+    const entries = dayEntries.filter(m => m.meal===key);
+    html += '<div class="mealblock"><div class="mealhead">'+label+'</div>';
+    entries.forEach(e=>{
+      const info = entryInfo(e);
+      if (info.ok){ totals.kcal+=info.kcal; totals.protein+=info.protein; totals.fat+=info.fat; totals.carbs+=info.carbs; }
+      html += '<div class="mealrow">'
+        +'<button class="eatbtn" type="button" data-id="'+e.id+'" aria-pressed="'+!!e.eaten+'">'+(e.eaten?'☑':'☐')+'</button>'
+        +'<span class="mealname'+(e.eaten?' done':'')+'">'+esc(info.name)+' · '+e.grams+' г</span>'
+        +'<button class="mealdel" type="button" data-id="'+e.id+'">✕</button>'
+      +'</div>';
+    });
+    html += '<button class="addmeal" type="button" data-meal="'+key+'">+ додати</button></div>';
+  });
+  html += '<div class="daytotal">Разом за день (на двох) · <b>'+Math.round(totals.kcal)+'</b> ккал'
+    +' · Б'+Math.round(totals.protein)+' Ж'+Math.round(totals.fat)+' В'+Math.round(totals.carbs)+'</div>';
+  root.innerHTML = html;
+  root.querySelectorAll('.eatbtn').forEach(b => b.onclick=()=>toggleEaten(b.dataset.id));
+  root.querySelectorAll('.mealdel').forEach(b => b.onclick=()=>removeMenuEntry(b.dataset.id));
+  root.querySelectorAll('.addmeal').forEach(b => b.onclick=()=>openAddMealSheet(b.dataset.meal));
+}
+$('#weekPrev').onclick=()=>{ weekStart=addDays(weekStart,-7); selectedDate=isoDate(weekStart); renderWeekNav(); renderDay(); };
+$('#weekNext').onclick=()=>{ weekStart=addDays(weekStart,7); selectedDate=isoDate(weekStart); renderWeekNav(); renderDay(); };
+
+/* ── тиждень: аркуш додавання страви ─────── */
+function pantryPickerRow(pantryRow, it){
+  return '<div class="pickrow" data-pid="'+it.id+'" data-step="'+it.portion+'" data-mult="2">'
+    +'<div class="pickname">'+esc(it.name)+'<span class="pickrem"> · лишилось '+pantryRow.grams_left+' г</span></div>'
+    +'<div class="pickqty">'
+      +'<button class="qbtn" type="button" data-d="-1">−</button>'
+      +'<span class="qval"><b class="qmult">2</b> порції · <b class="qgrams">'+(it.portion*2)+'</b> г</span>'
+      +'<button class="qbtn" type="button" data-d="1">+</button>'
+    +'</div>'
+    +'<button class="qadd" type="button">Додати</button>'
+  +'</div>';
+}
+function wireItemPicker(container){
+  container.querySelectorAll('.pickrow[data-pid]').forEach(row=>{
+    const step = parseFloat(row.dataset.step);
+    row.querySelectorAll('.qbtn').forEach(b=>{
+      b.onclick=()=>{
+        const mult = Math.max(1, parseInt(row.dataset.mult)+parseInt(b.dataset.d));
+        row.dataset.mult = mult;
+        row.querySelector('.qmult').textContent = mult;
+        row.querySelector('.qgrams').textContent = Math.round(mult*step);
+      };
+    });
+    row.querySelector('.qadd').onclick=()=>addMenuEntry('item', row.dataset.pid, parseInt(row.dataset.mult)*step);
+  });
+}
+function sidePickerRow(side){
+  return '<div class="pickrow" data-sid="'+side.id+'" data-grams="'+side.default_grams+'">'
+    +'<div class="pickname">'+esc(side.name)+'</div>'
+    +'<div class="pickqty">'
+      +'<button class="qbtn" type="button" data-d="-50">−</button>'
+      +'<span class="qval"><b class="qgrams">'+side.default_grams+'</b> г</span>'
+      +'<button class="qbtn" type="button" data-d="50">+</button>'
+    +'</div>'
+    +'<button class="qadd" type="button">Додати</button>'
+  +'</div>';
+}
+function wireSidePicker(container){
+  container.querySelectorAll('.pickrow[data-sid]').forEach(row=>{
+    row.querySelectorAll('.qbtn').forEach(b=>{
+      b.onclick=()=>{
+        const g = Math.max(50, parseInt(row.dataset.grams)+parseInt(b.dataset.d));
+        row.dataset.grams = g;
+        row.querySelector('.qgrams').textContent = g;
+      };
+    });
+    row.querySelector('.qadd').onclick=()=>addMenuEntry('side', row.dataset.sid, parseInt(row.dataset.grams));
+  });
+}
+function openAddMealSheet(mealKey){
+  currentAddMeal = mealKey;
+  const mealLabel = MEALS.find(m => m[0]===mealKey)[1];
+  const lbl = fmtDayLabel(new Date(selectedDate+'T00:00:00'));
+  const availablePantry = pantry.filter(p => p.grams_left>0 && findCatalogItem(p.item_id));
+
+  sheet.innerHTML =
+    '<div class="grab"></div>'
+    +'<button class="sclose" type="button" aria-label="Закрити">✕</button>'
+    +'<div class="shead"><h2 class="stitle">'+esc(mealLabel)+' · '+lbl.dow+', '+lbl.dm+'</h2></div>'
+    +'<div class="segrow">'
+      +'<button class="segbtn active" type="button" data-seg="pantry">З морозилки</button>'
+      +'<button class="segbtn" type="button" data-seg="side">Гарнір</button>'
+    +'</div>'
+    +'<div id="segPantry"></div>'
+    +'<div id="segSide" hidden></div>';
+
+  sheet.querySelector('.sclose').onclick=closeSheet;
+  const segP=sheet.querySelector('#segPantry'), segS=sheet.querySelector('#segSide');
+  sheet.querySelectorAll('.segbtn').forEach(b=>{
+    b.onclick=()=>{
+      sheet.querySelectorAll('.segbtn').forEach(x=>x.classList.toggle('active', x===b));
+      segP.hidden = b.dataset.seg!=='pantry';
+      segS.hidden = b.dataset.seg!=='side';
+    };
+  });
+
+  segP.innerHTML = availablePantry.length
+    ? availablePantry.map(p=>pantryPickerRow(p, findCatalogItem(p.item_id))).join('')
+    : '<p class="hint">Морозилка порожня. Спочатку додай щось на вкладці «Морозилка».</p>';
+  wireItemPicker(segP);
+
+  function paintSideSeg(){
+    segS.innerHTML = sides.map(sidePickerRow).join('')
+      +'<button class="newside" type="button" id="newSideBtn">+ Новий гарнір</button>'
+      +'<div class="sideform" id="sideForm" hidden>'
+        +'<input class="sfield" type="text" id="sfName" placeholder="Назва (напр. гречка)">'
+        +'<div class="sgrid">'
+          +'<input class="sfield" type="number" inputmode="numeric" id="sfGrams" placeholder="Грамів" value="150">'
+          +'<input class="sfield" type="number" inputmode="decimal" id="sfKcal" placeholder="Ккал/100г">'
+          +'<input class="sfield" type="number" inputmode="decimal" id="sfProt" placeholder="Білки/100г">'
+          +'<input class="sfield" type="number" inputmode="decimal" id="sfFat" placeholder="Жири/100г">'
+          +'<input class="sfield" type="number" inputmode="decimal" id="sfCarbs" placeholder="Вугл./100г">'
+        +'</div>'
+        +'<button class="addpantry" type="button" id="sfCreate">Створити гарнір</button>'
+      +'</div>';
+    wireSidePicker(segS);
+    segS.querySelector('#newSideBtn').onclick=()=>{
+      segS.querySelector('#newSideBtn').hidden=true;
+      segS.querySelector('#sideForm').hidden=false;
+    };
+    segS.querySelector('#sfCreate').onclick=async ()=>{
+      const name = segS.querySelector('#sfName').value.trim();
+      if (!name){ alert('Вкажи назву гарніру.'); return; }
+      const grams = parseInt(segS.querySelector('#sfGrams').value)||150;
+      const num = sel => { const v=segS.querySelector(sel).value; return v===''?null:parseFloat(v); };
+      await createSide(name, grams, num('#sfKcal'), num('#sfProt'), num('#sfFat'), num('#sfCarbs'));
+      paintSideSeg();
+    };
+  }
+  paintSideSeg();
+
+  sheet.classList.add('on'); scrim.classList.add('on');
+  document.body.style.overflow='hidden';
+  sheet.scrollTop=0;
+  sheet.querySelector('.sclose').focus();
+}
+
+/* ── закупівля: рендер ───────────────────── */
+function renderPeriodChips(){
+  const row = $('#periodChips'); row.innerHTML='';
+  [['week','Тиждень'],['2weeks','2 тижні'],['month','Місяць']].forEach(([k,label])=>{
+    const btn=document.createElement('button');
+    btn.className='chip'; btn.type='button';
+    btn.setAttribute('aria-pressed', String(k===shopPeriod));
+    btn.textContent=label;
+    btn.onclick=()=>{ shopPeriod=k; localStorage.setItem(PERIODKEY,k); renderPeriodChips(); };
+    row.append(btn);
+  });
+}
+function renderShopping(){
+  $('#shopCount').textContent = shopping.length ? (' '+shopping.length) : '';
+  const root = $('#shopList'), sumRoot = $('#shopSummary');
+  if (!shopping.length){
+    root.innerHTML = '<div class="empty"><b>Список закупівлі порожній</b>Додавай позиції кнопкою «+ Додати до списку закупівлі» в деталях картки з каталогу.</div>';
+    sumRoot.innerHTML = '';
+    return;
+  }
+  const byCat = {};
+  shopping.forEach(row=>{
+    const it = findCatalogItem(row.item_id); if (!it) return;
+    (byCat[it.category] = byCat[it.category] || []).push({row, it});
+  });
+  let html='';
+  DATA.categories.forEach(cat=>{
+    const rows = byCat[cat.id]; if (!rows || !rows.length) return;
+    html += '<div class="shopcat"><div class="mealhead">'+esc(cat.name)+'</div>';
+    rows.forEach(({row,it})=>{
+      const p = it.producer==='galya'?'gb':'su';
+      html += '<div class="shoprow '+p+'">'
+        +'<span class="pbadge">'+PROD[it.producer].short+'</span>'
+        +'<span class="shopname">'+esc(it.name)+'</span>'
+        +'<div class="pickqty small">'
+          +'<button class="qbtn" type="button" data-id="'+row.id+'" data-d="-1">−</button>'
+          +'<span class="qval"><b>'+row.packs+'</b>×</span>'
+          +'<button class="qbtn" type="button" data-id="'+row.id+'" data-d="1">+</button>'
+        +'</div>'
+        +'<span class="shopsum">'+Math.round(it.packPrice*row.packs)+' ₴</span>'
+      +'</div>';
+    });
+    html += '</div>';
+  });
+  root.innerHTML = html;
+  root.querySelectorAll('.qbtn').forEach(b=>{
+    b.onclick=()=>{
+      const row = shopping.find(s => s.id===b.dataset.id);
+      if (row) adjustShoppingPacks(row, parseInt(b.dataset.d));
+    };
+  });
+
+  let sumHtml='';
+  ['galya','samudoma'].forEach(pk=>{
+    const rows = shopping.filter(s => { const it=findCatalogItem(s.item_id); return it && it.producer===pk; });
+    if (!rows.length) return;
+    const total = rows.reduce((a,s) => { const it=findCatalogItem(s.item_id); return a + it.packPrice*s.packs; }, 0);
+    const prod = PROD[pk];
+    let note = null;
+    if (prod.minOrder!=null && total < prod.minOrder){
+      note = {cls:'warn', text:'Ще '+Math.ceil(prod.minOrder-total)+' ₴ до мінімального замовлення ('+prod.minOrder+' ₴)'};
+    } else if (prod.freeFrom!=null && total < prod.freeFrom){
+      note = {cls:'warn', text:'Доставка '+prod.deliveryFee+' ₴ · ще '+Math.ceil(prod.freeFrom-total)+' ₴ до безкоштовної ('+prod.freeFrom+' ₴)'};
+    } else if (prod.freeFrom!=null){
+      note = {cls:'ok', text:'Безкоштовна доставка'};
+    }
+    sumHtml += '<div class="shopsummary '+(pk==='galya'?'gb':'su')+'">'
+      +'<div class="ssname">'+esc(prod.name)+'</div>'
+      +'<div class="sstotal">'+Math.round(total)+' ₴ <span class="sscount">· '+rows.length+' поз.</span></div>'
+      +(note?'<div class="ssnote '+note.cls+'">'+esc(note.text)+'</div>':'')
+      +'<div class="ssactions">'
+        +'<a class="buy '+(pk==='galya'?'gb':'su')+'" href="'+prod.url+'" target="_blank" rel="noopener">Відкрити '+esc(prod.name)+'</a>'
+        +'<button class="ssclear" type="button" data-p="'+pk+'">Очистити</button>'
+      +'</div>'
+    +'</div>';
+  });
+  sumRoot.innerHTML = sumHtml;
+  sumRoot.querySelectorAll('.ssclear').forEach(b=>{
+    b.onclick=()=>{ if (confirm('Очистити список для '+PROD[b.dataset.p].name+'?')) clearShoppingForProducer(b.dataset.p); };
+  });
+}
+
+/* ── старт ────────────────────────────────── */
+render();
+renderPantry();
+renderWeekNav();
+renderDay();
+renderPeriodChips();
+renderShopping();
+if (getRoom()){
+  Promise.all([pullFavorites(), loadPantry(), loadSides(), loadMenu(), loadShopping()]).then(()=>{
+    render(); renderPantry(); renderWeekNav(); renderDay(); renderShopping();
+  });
+}
+</script>
+</body>
+</html>
