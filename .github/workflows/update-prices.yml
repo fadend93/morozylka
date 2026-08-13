@@ -1,0 +1,35 @@
+name: Оновити ціни
+
+on:
+  schedule:
+    # 05:00 UTC = 07:00/08:00 Київ (залежно від переходу на літній час) — раз на два дні
+    - cron: "0 5 */2 * *"
+  workflow_dispatch: {}   # кнопка "Run workflow" у вкладці Actions, щоб запустити вручну
+
+permissions:
+  contents: write
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Оновити ціни, позначити зниклі й новознайдені позиції
+        run: python3 scripts/update_prices.py
+
+      - name: Закомітити, якщо щось змінилось
+        run: |
+          git config user.name "morozylka-price-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add catalog.json new_items_report.md
+          if git diff --cached --quiet; then
+            echo "Нічого не змінилось — нічого комітити."
+          else
+            git commit -m "Автооновлення $(date -u +%Y-%m-%d): ціни, наявність позицій"
+            git push
+          fi
