@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-13",
+ "updatedAt": "2026-08-15",
  "schemaVersion": 1,
  "producers": {
   "galya": {
@@ -108,7 +108,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно пшеничне в/г, м'ясо свинне, сало свине, цибуля, олія, вода, сіль, перець чорний",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
@@ -126,7 +126,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
    "missCount": 0
@@ -148,7 +148,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», яловичина, свинина, сало, цибуля, олія, вода, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
@@ -171,7 +171,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
    "missCount": 0
@@ -193,7 +193,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно пшеничне, телятина, кріп свіжий, сіль",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
@@ -220,7 +220,8 @@
    "composition": "Борошно «Екстра», яловичина, свинина, куряче м'ясо, сало, цибуля, кріп, олія, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-pelmeni-z-indyka",
@@ -239,7 +240,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», м'ясо індика в/г, цибуля, вода, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
@@ -262,7 +263,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
    "missCount": 0
@@ -284,7 +285,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», свинина, сало, кінза, кріп, петрушка, цибуля, крохмаль, олія, уцхо-сунелі, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
@@ -307,7 +308,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
    "missCount": 0
@@ -329,7 +330,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», сир сулугуні, крохмаль картопляний, олія, вода, уцхо-сунелі, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, довести до кипіння, варити 4-6 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2017/01/P1510083-scaled.jpg",
@@ -352,7 +353,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Сир кисломолочний 5%, сіль, цукор, ванільний цукор, борошно, яйце",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -375,7 +376,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», картопля варена, цибуля, олія, вода, сіль",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -398,7 +399,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, сир кисломолочний, зелень, сіль",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -421,7 +422,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», картопля варена, печериці, цибуля, олія, вода, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -444,7 +445,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, картопля варена, гриби білі, шампіньйони, цибуля, олія, сіль",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -467,7 +468,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», капуста квашена, цибуля, морква, олія, вода, сіль",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -490,7 +491,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
    "missCount": 0
@@ -507,7 +508,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
    "missCount": 0
@@ -524,7 +525,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, шампіньйони смажені, сир «Чеддер», вода, цибуля смажена, олія, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -547,7 +548,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, сир кисломолочний, зелень, сіль",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -570,7 +571,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, сир кисломолочний, шпинат, зелень, сіль",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -593,7 +594,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», серце свине, легені свині, сало, цибуля, олія, вода, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -616,7 +617,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», м'ясо свине в/г, сало, цибуля, олія, вода, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -643,7 +644,8 @@
    "composition": "Борошно «Екстра», сир кисломолочний, олія, яйце, вода, цукор ванільний, цукор",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-varenyky-z-vyshneyu",
@@ -662,7 +664,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», вишня свіжоморожена, олія, вода, сіль, цукор",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -685,7 +687,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, чорниця свіжоморожена, цукор",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
@@ -703,7 +705,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
    "missCount": 0
@@ -720,7 +722,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити 5-7 хв",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0374-1-scaled.jpg",
    "missCount": 0
@@ -742,7 +744,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», сир кисломолочний, яєчний жовток, цукор ванільний, цукор",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg",
@@ -765,7 +767,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg",
    "missCount": 0
@@ -787,7 +789,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, сир кисломолочний, банан, цукор ванільний, цукор, жовток",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg",
@@ -810,7 +812,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», сир кисломолочний, шоколад чорний, жовток, цукор",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg",
@@ -833,7 +835,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», сир кисломолочний, родзинки, жовток, цукор",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg",
@@ -856,7 +858,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Сир кисломолочний, жовток, цукор, борошно, кріп, сіль",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg",
@@ -882,7 +884,8 @@
    "priceCheckedAt": "2026-08-11",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-syrnyky-z-solonoyu-karamellyu",
@@ -901,7 +904,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg",
    "missCount": 0
@@ -918,7 +921,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_0634-1-scaled.jpg",
    "missCount": 0
@@ -940,7 +943,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», сир кисломолочний, яйця, масло вершкове, молоко, олія, цукор",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -966,7 +969,8 @@
    "priceCheckedAt": "2026-08-11",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-mlyntsi-z-malynovym-konfityurom-syrom-filadelfiy",
@@ -980,7 +984,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
    "missCount": 0
@@ -1002,7 +1006,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, сир кисломолочний, банан, яйця, масло, молоко, какао, шоколадно-горіхова паста, цукор",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1025,7 +1029,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», сир кисломолочний, полуниця, яйця, масло, молоко, олія, цукор",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1048,7 +1052,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, сир кисломолочний, вода, яйце, чорниця, масло, молоко, цукор",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1071,7 +1075,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», макова начинка, вишня, яйце, масло, молоко, олія, цукор",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1094,7 +1098,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, масло, молоко, яйця, банан, молоко згущене",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1112,7 +1116,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, яблука, молоко, масло вершкове, яйця, цукор",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1130,7 +1134,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», яйця, масло, молоко, шинка копчена, сир «Чедер», вершки, майонез, гірчиця, кріп",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1148,7 +1152,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
    "missCount": 0
@@ -1170,7 +1174,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», куряче філе в/г, печериці, цибуля, яйця, масло, молоко, олія, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1193,7 +1197,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», серце свинне, легені свинні, цибуля, яйце, масло, молоко, олія, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1216,7 +1220,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», свинина, сало, цибуля, яйця, масло, молоко, олія, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1239,7 +1243,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», сир кисломолочний, філе лосося в/г, яйце, масло, молоко, олія, сіль",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1257,7 +1261,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, молоко, масло селянське, вода, яйце, шпинат, крем-сир, сіль, цукор",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1278,7 +1282,8 @@
    "priceCheckedAt": "2026-08-11",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-mlyntsi-vyshyvanka-mak-solodkyj-syr-vyshnya",
@@ -1295,7 +1300,8 @@
    "priceCheckedAt": "2026-08-11",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-mlyntsi-zhulyen-kurka-hryby-beshamel-tverdyj-syr",
@@ -1312,7 +1318,8 @@
    "priceCheckedAt": "2026-08-11",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-benderyky",
@@ -1331,7 +1338,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», свинина, сало, цибуля, яйце, масло, молоко, олія, сіль, цукор, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1349,7 +1356,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
    "missCount": 0
@@ -1371,7 +1378,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно в/с, вода, сир, сулугуні, зелень свіжа",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
@@ -1389,7 +1396,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_0946.jpg",
    "missCount": 0
@@ -1411,7 +1418,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», картопляне пюре, свинина в/г, сало, цибуля, олія, яйце, вода, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg",
@@ -1429,7 +1436,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, картопляне пюре, лівер (серце, легені), сало, цибуля, сіль, олія, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg",
@@ -1447,7 +1454,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg",
    "missCount": 0
@@ -1464,7 +1471,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, картопляне пюре, горох колотий варений, цибуля смажена, яйце, олія, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg",
@@ -1482,7 +1489,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно, картопляне пюре, капуста квашена, морква, олія, цибуля смажена, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg",
@@ -1505,7 +1512,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», картопляне пюре, печериці, цибуля, морква, олія, яйце, вода, сіль",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7209-scaled.jpg",
@@ -1528,7 +1535,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Рис круглий в/г, свинина в/г, сало, капуста білокачанна, цибуля, морква, сіль, перець",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg",
@@ -1551,7 +1558,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Рис круглий, печериці смажені, цибуля, морква, капуста, олія, сіль, перець",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg",
@@ -1574,7 +1581,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Рис круглий в/г, телятина в/г, капуста, цибуля, морква, сіль, перець",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg",
@@ -1592,7 +1599,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg",
    "missCount": 0
@@ -1609,7 +1616,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Рис круглий в/г, шинка свинна, яловичина знежилована, перець болгарський, цибуля, морква, сіль, перець",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg",
@@ -1632,7 +1639,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Рис круглий в/г, шинка свинна, сало, перець болгарський, цибуля, морква, сіль, перець",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg",
@@ -1655,7 +1662,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Рис круглий в/г, печериці, сало, перець болгарський, цибуля, морква, сіль, перець",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7116-scaled.jpg",
@@ -1678,7 +1685,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», свинина, сало, цибуля, олія, вода, сіль, перець",
    "cooking": "Трохи розморозити, смажити на розігрітій олії з двох боків",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg",
@@ -1696,7 +1703,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно в/с, сир кисломолочний, сир «Чеддер», вода, цибуля, олія, дріжджі, цукор, кріп, петрушка, сіль, перець",
    "cooking": "Трохи розморозити, смажити на розігрітій олії з двох боків",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg",
@@ -1719,7 +1726,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно «Екстра», свинина, сало, сир чедер, помідор свіжий, цибуля, олія, вода, сіль, перець",
    "cooking": "Трохи розморозити, смажити на розігрітій олії з двох боків",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg",
@@ -1737,7 +1744,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Трохи розморозити, смажити на розігрітій олії з двох боків",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg",
    "missCount": 0
@@ -1754,7 +1761,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Трохи розморозити, смажити на розігрітій олії з двох боків",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_1026-scaled.jpg",
    "missCount": 0
@@ -1776,7 +1783,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Свинина в/г, сало, цибуля, яйце, панірувальні сухарі, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
@@ -1794,7 +1801,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Свинина в/г, сало, яловичина в/г, цибуля, яйце, панірувальні сухарі, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
@@ -1817,7 +1824,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Філе морської риби Аргентина, сало, цибуля, яйце, панірувальні сухарі, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
@@ -1840,7 +1847,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Філе морської риби Аргентина, цибуля, панірувальні сухарі, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
@@ -1863,7 +1870,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Філе куряче, сало, цибуля, яйце, панірувальні сухарі, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
@@ -1890,7 +1897,8 @@
    "composition": "М'ясо індика в/г, цибуля, кукурудзяна крупа, сухарі, яйце, сіль",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-kotlety-burherni",
@@ -1913,7 +1921,8 @@
    "composition": "Яловичина знежилована в/с, сало, гірчиця, сіль, перець",
    "cooking": "Смажити без олії 5-7 хв, періодично перевертаючи",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-kotlety-kordon-blyu",
@@ -1936,7 +1945,8 @@
    "composition": "Філе куряче, сир «Чеддер», масло вершкове, яйця, сухарі, кріп, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-hrechanyky",
@@ -1950,7 +1960,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Свинина знежилована напівжирна, сало, крупа гречана варена, цибуля, яйця, сухарі, олія",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
@@ -1977,7 +1987,8 @@
    "composition": "М'ясо курки в/г, цибуля, сіль",
    "cooking": "Запікати 30 хв при 180 °C або на паровій бані",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-frykadelky-rybni",
@@ -1996,7 +2007,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Філе риби Аргентина в/г, цибуля, сіль",
    "cooking": "Запікати 30 хв при 180 °C або на паровій бані",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
@@ -2019,7 +2030,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Телятина, яйце перепелине, цибуля мелена, сіль",
    "cooking": "Запікати 30 хв при 180 °C або на паровій бані",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
@@ -2037,7 +2048,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Філе куряче, м'ясо стегна, цибуля, хліб, яйця, часник, молоко, сіль, перець",
    "cooking": "На пару або в духовці",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
@@ -2059,7 +2070,8 @@
    "composition": "Філе куряче, сало, масло вершкове, кріп, сіль, панірувальні сухарі, яйця, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/DSC_2026-1-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-kovbasky-hryl-kuryachi-z-syrom",
@@ -2078,7 +2090,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Філе куряче, сало, сир чедер, часник, оболонка натуральна, сіль, перець",
    "cooking": "Смажити або запікати до готовності",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7890-scaled.jpg",
@@ -2101,7 +2113,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Шинка свиняча, сало, часник, оболонка натуральна, сіль, перець",
    "cooking": "Смажити або запікати до готовності",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7890-scaled.jpg",
@@ -2124,7 +2136,7 @@
    },
    "nutritionSource": "label",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Шинка свиняча, сало, часник, гірчиця в зернах, оболонка натуральна, сіль, перець",
    "cooking": "Смажити або запікати до готовності",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/01/MG_7890-scaled.jpg",
@@ -2142,7 +2154,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Сир «Моцарела», яйця, сухарі панірувальні, куркума, борошно",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
@@ -2160,7 +2172,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Печінка куряча, свинина знежилована, цибуля, морква, масло вершкове, сіль",
    "cooking": "Запікати 20 хв при 180 °C",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
@@ -2178,7 +2190,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Печінка куряча, молоко, борошно, яйця, олія, цибуля, морква, майонез, сир «Чеддер», сухарі, сіль, перець",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
    "missCount": 0
@@ -2195,7 +2207,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
    "missCount": 0
@@ -2212,7 +2224,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
    "missCount": 0
@@ -2229,7 +2241,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
    "missCount": 0
@@ -2246,7 +2258,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
    "missCount": 0
@@ -2263,7 +2275,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
    "missCount": 0
@@ -2280,7 +2292,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
    "missCount": 0
@@ -2300,7 +2312,8 @@
    "priceCheckedAt": "2026-08-11",
    "cooking": "Запікати в духовці",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-zhulyen-z-kuroyu-ta-hrybamy",
@@ -2314,7 +2327,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2021/02/DSC_0069-scaled.jpg",
    "missCount": 0
@@ -2331,7 +2344,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
    "missCount": 0
@@ -2352,7 +2365,8 @@
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-borshch-shchavlevyj",
@@ -2366,7 +2380,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
@@ -2384,7 +2398,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2402,7 +2416,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2420,7 +2434,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2438,7 +2452,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
@@ -2456,7 +2470,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
@@ -2474,7 +2488,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
@@ -2492,7 +2506,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
@@ -2514,7 +2528,8 @@
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-sup-tajskyj",
@@ -2528,7 +2543,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
@@ -2550,7 +2565,8 @@
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-kuryache-file-z-kartoplyanym-pyure-ta-syrnym-sou",
@@ -2564,7 +2580,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2582,7 +2598,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2600,7 +2616,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2618,7 +2634,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2636,7 +2652,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2654,7 +2670,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2672,7 +2688,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2694,7 +2710,8 @@
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-sup-tomatnyj-z-krevetkamy-ta-midiyamy",
@@ -2708,7 +2725,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
@@ -2726,7 +2743,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 2,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
@@ -2748,7 +2765,8 @@
    "cooking": "Додати 500-600 мл води, варити 15 хв. Виходить 3 повноцінні порції",
    "portionsPerPackOverride": 3,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-bohrach-kontsentrat",
@@ -2766,7 +2784,8 @@
    "cooking": "Додати 500-600 мл води, варити 15 хв. Виходить 3 повноцінні порції",
    "portionsPerPackOverride": 3,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/08/DSC_0773-scaled.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-pasta-karbonara",
@@ -2784,7 +2803,8 @@
    "cooking": "Тільки розігріти",
    "portionsPerPackOverride": 1,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-pasta-toskana-z-indychkoyu",
@@ -2802,7 +2822,8 @@
    "cooking": "Тільки розігріти",
    "portionsPerPackOverride": 1,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-rvana-svynyna-z-kuskusom",
@@ -2834,7 +2855,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "portionsPerPackOverride": 6,
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/12/Pisni-stravi-kopiya-2.jpg",
@@ -2854,7 +2875,8 @@
    "url": "https://galyabaluvanakyiv.com.ua/",
    "priceCheckedAt": "2026-08-11",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-rulet-merenhovyj-polunytsya",
@@ -2870,7 +2892,8 @@
    "url": "https://galyabaluvanakyiv.com.ua/",
    "priceCheckedAt": "2026-08-11",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-rulet-merenhovyj-abrykos-persyk",
@@ -2886,7 +2909,8 @@
    "url": "https://galyabaluvanakyiv.com.ua/",
    "priceCheckedAt": "2026-08-11",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-syrok-hlazurovanyj-miks-smakiv",
@@ -2900,7 +2924,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://galyabaluvanakyiv.com.ua/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg",
    "missCount": 0
   },
@@ -2918,7 +2942,8 @@
    "url": "https://galyabaluvanakyiv.com.ua/",
    "priceCheckedAt": "2026-08-11",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-tort-tiramisu",
@@ -2934,7 +2959,8 @@
    "url": "https://galyabaluvanakyiv.com.ua/",
    "priceCheckedAt": "2026-08-11",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-dubajskyj-shokolad-mountain",
@@ -2950,7 +2976,8 @@
    "url": "https://galyabaluvanakyiv.com.ua/",
    "priceCheckedAt": "2026-08-11",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-moti-mountain",
@@ -2966,7 +2993,8 @@
    "url": "https://galyabaluvanakyiv.com.ua/",
    "priceCheckedAt": "2026-08-11",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "g-morozyvo-halya-baluvana",
@@ -2982,7 +3010,8 @@
    "url": "https://galyabaluvanakyiv.com.ua/",
    "priceCheckedAt": "2026-08-11",
    "photo": "https://baluvanagalya.com.ua/wp-content/uploads/2023/09/photo1695127810.jpeg",
-   "missCount": 1
+   "missCount": 2,
+   "discontinued": true
   },
   {
    "id": "su-varenyky-z-kartopleyu",
@@ -3001,7 +3030,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно в/с, картопля варена, вода, цибуля смажена, яйця, олія, сіль",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
@@ -3018,7 +3047,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-klasychni/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -3034,7 +3063,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/golubci-zi-svynynoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"
   },
@@ -3050,7 +3079,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/golubci-z-indychkoyu-ta-kurkoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"
   },
@@ -3066,7 +3095,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kuryacha-z-grybamy-ta-mocarelloyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3082,7 +3111,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-zi-svynynoyu-ta-yalovychynoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3098,7 +3127,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/zrazy-z-kapustoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"
   },
@@ -3114,7 +3143,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kuryachi-benderyky-z-kurkoyu-ta-tverdym-syrom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3130,7 +3159,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-bekonom-ta-cybuleyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3146,7 +3175,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kotleta-kuryacha/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3162,7 +3191,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/zrazy-z-myasom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"
   },
@@ -3178,7 +3207,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pisna-rybna-kotleta/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3199,7 +3228,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-z-indychkoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно в/с, м'ясо індиче, вершки кулінарні, вода, яйця, цибуля, олія, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
@@ -3216,7 +3245,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-vyshneyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3232,7 +3261,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-yablukami-ta-koryceyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3248,7 +3277,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-z-kurkoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3264,7 +3293,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/lazanya-bolonyeze/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -3280,7 +3309,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-kurkoyu-ta-grybamy/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3296,7 +3325,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/ovochevij-sup-z-frykadelkamy/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Борщ.png"
   },
@@ -3312,7 +3341,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/perci-zi-svynynoyu-ta-yalovychynoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"
   },
@@ -3328,7 +3357,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-cezar/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3344,7 +3373,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/benderyky-z-myasom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3360,7 +3389,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kotleta-rybna-po-domashnomu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3381,7 +3410,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kapustoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно в/с, капуста білокачанна тушкована, цибуля смажена, вода, яйця, олія, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
@@ -3403,7 +3432,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/domashni-sirniki-z-zelennyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно в/г, олія, яйця, сир кисломолочний, моцарела твердий, кріп, сіль, перець",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
@@ -3420,7 +3449,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/chebureky-z-myasom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Трохи розморозити, смажити на олії з двох боків",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"
   },
@@ -3436,7 +3465,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/sous-dlya-tushkuvannya/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -3452,7 +3481,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-zi-svynynoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3468,7 +3497,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-sirom-ta-vanillyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3484,7 +3513,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-try-myasa/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3500,7 +3529,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kuryacha-kotleta-po-kiyivski/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3516,7 +3545,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hinkali-z-yalovychynoyu-ta-svynynoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3532,7 +3561,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/teftelya-myasna/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3548,7 +3577,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/chebureky-z-syrom-ta-zelennyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Трохи розморозити, смажити на олії з двох боків",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"
   },
@@ -3564,7 +3593,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/chebureky-z-kurcham-bekonom-ta-parmezanom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Трохи розморозити, смажити на олії з двох боків",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"
   },
@@ -3580,7 +3609,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/perci-z-kurcham-ta-bekonom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"
   },
@@ -3601,7 +3630,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/kolorovi-pelmeni-z-kurkoyu-ta-svynynoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно в/с, свинина знежилена, філе куряче, цибуля, олія, яйця, буряк, морква, шпинат, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
@@ -3618,7 +3647,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-myasom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3634,7 +3663,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-domashnim-syrom-ta-vanillyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3650,7 +3679,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-tomlenym-yazykom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3666,7 +3695,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/borsh-chervonij/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розігріти",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Борщ.png"
   },
@@ -3682,7 +3711,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-kopchenoyu-shynkoyu-ta-syrom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3698,7 +3727,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-liverom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3714,7 +3743,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-makom-ta-vishnyami/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3730,7 +3759,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-myasom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3746,7 +3775,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kotleti-zi-svinini/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3762,7 +3791,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hachapuri-z-syrom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -3778,7 +3807,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/zrazy-z-liverom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"
   },
@@ -3799,7 +3828,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-z-rodzynkamy/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Сир кисломолочний, борошно в/с, яйця (жовток), родзинки, цукор білий, цукор ванільний",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
@@ -3816,7 +3845,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/syrni-benderyky-z-domashnim-syrom-ta-mocarelloyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3832,7 +3861,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mitboly-z-indychky/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3848,7 +3877,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-soloniym-domashnim-syrom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3864,7 +3893,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/frykadelky/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3880,7 +3909,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-ta-syrom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3896,7 +3925,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-ta-grybamy/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3912,7 +3941,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-syrom-ta-lohinoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3928,7 +3957,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-brynzoyu-ta-zelennyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3944,7 +3973,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/linivi-varenyky-po-domashnomu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3960,7 +3989,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/syrnyky-z-makom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -3976,7 +4005,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/shokoladni-mlynci-z-domashnim-syrom-ta-shokoladom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3997,7 +4026,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/domashni-sirniki-z-lohinoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Сир кисломолочний, борошно в/с, яйця (жовток), лохина с/м, цукор білий, цукор ванільний",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
@@ -4014,7 +4043,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-ta-zelennyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -4030,7 +4059,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-4-syry/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -4046,7 +4075,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hinkali-z-baraninoyu-ta-shidnimi-speciyami/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -4062,7 +4091,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-4-syry/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -4078,7 +4107,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/krokety-kartoplyani/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"
   },
@@ -4094,7 +4123,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/nagetsy-kuryachi-v-panirovci-kg/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -4110,7 +4139,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-myasom-lya-bolonyeze/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -4126,7 +4155,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-z-shokoladnoyu-pastoyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -4142,7 +4171,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-vyshneyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -4158,7 +4187,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/chebureky-z-baranynoyu-ta-shidnymy-speciyamy/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Трохи розморозити, смажити на олії з двох боків",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"
   },
@@ -4174,7 +4203,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-bananom-ta-shokoladom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -4195,7 +4224,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-liverom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "composition": "Борошно в/с, серце свинне, легені свинні, сало, молоко, цибуля, яйця, масло вершкове, олія, вода, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
@@ -4212,7 +4241,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kruchenyky-z-kurcham-ta-bekonom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -4228,7 +4257,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kotlety-zi-svynyny-ta-yalovychyny/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -4244,7 +4273,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-z-solonoyu-karamellyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -4260,7 +4289,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-zi-shpynatom-ta-mocareloyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -4276,7 +4305,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hinkali-z-brynzoyu-syrom-tomatami-ta-zelennyu/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -4292,7 +4321,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/lazanya-proshutto-fungi/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -4308,7 +4337,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hachapuri-z-shynkoyu-ta-syrom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -4324,7 +4353,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-z-baranynoyu-ta-shidnymy-speciyami/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -4340,7 +4369,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kruchenyky-zi-svynynoyu-ta-grybamy/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -4356,7 +4385,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlinci-shpinatni-z-krem-syrom/",
-   "priceCheckedAt": "2026-08-13",
+   "priceCheckedAt": "2026-08-15",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   }
