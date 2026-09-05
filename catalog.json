@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-03",
+ "updatedAt": "2026-09-05",
  "schemaVersion": 1,
  "producers": {
   "galya": {
@@ -3030,7 +3030,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "composition": "Борошно в/с, картопля варена, вода, цибуля смажена, яйця, олія, сіль",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
@@ -3047,7 +3047,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-klasychni/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -3063,7 +3063,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/golubci-zi-svynynoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"
   },
@@ -3079,7 +3079,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/golubci-z-indychkoyu-ta-kurkoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"
   },
@@ -3095,7 +3095,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kuryacha-z-grybamy-ta-mocarelloyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3111,7 +3111,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-zi-svynynoyu-ta-yalovychynoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3127,7 +3127,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/zrazy-z-kapustoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"
   },
@@ -3143,7 +3143,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kuryachi-benderyky-z-kurkoyu-ta-tverdym-syrom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3159,7 +3159,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-bekonom-ta-cybuleyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3175,7 +3175,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kotleta-kuryacha/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3191,7 +3191,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/zrazy-z-myasom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"
   },
@@ -3207,7 +3207,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pisna-rybna-kotleta/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3228,7 +3228,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-z-indychkoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "composition": "Борошно в/с, м'ясо індиче, вершки кулінарні, вода, яйця, цибуля, олія, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
@@ -3245,7 +3245,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-vyshneyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3261,7 +3261,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-yablukami-ta-koryceyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3277,7 +3277,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-z-kurkoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3293,7 +3293,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/lazanya-bolonyeze/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -3309,7 +3309,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-kurkoyu-ta-grybamy/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3325,7 +3325,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/ovochevij-sup-z-frykadelkamy/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розігріти",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Борщ.png"
   },
@@ -3341,7 +3341,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/perci-zi-svynynoyu-ta-yalovychynoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"
   },
@@ -3357,7 +3357,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-cezar/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3373,7 +3373,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/benderyky-z-myasom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3389,7 +3389,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kotleta-rybna-po-domashnomu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3410,7 +3410,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kapustoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "composition": "Борошно в/с, капуста білокачанна тушкована, цибуля смажена, вода, яйця, олія, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
@@ -3432,7 +3432,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/domashni-sirniki-z-zelennyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "composition": "Борошно в/г, олія, яйця, сир кисломолочний, моцарела твердий, кріп, сіль, перець",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
@@ -3449,7 +3449,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/chebureky-z-myasom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Трохи розморозити, смажити на олії з двох боків",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"
   },
@@ -3465,7 +3465,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/sous-dlya-tushkuvannya/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -3481,7 +3481,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-zi-svynynoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3497,7 +3497,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-sirom-ta-vanillyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3513,7 +3513,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-try-myasa/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3529,7 +3529,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kuryacha-kotleta-po-kiyivski/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3545,7 +3545,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hinkali-z-yalovychynoyu-ta-svynynoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -3561,7 +3561,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/teftelya-myasna/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3577,7 +3577,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/chebureky-z-syrom-ta-zelennyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Трохи розморозити, смажити на олії з двох боків",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"
   },
@@ -3593,7 +3593,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/chebureky-z-kurcham-bekonom-ta-parmezanom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Трохи розморозити, смажити на олії з двох боків",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"
   },
@@ -3609,7 +3609,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/perci-z-kurcham-ta-bekonom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Помістити замороженими в каструлю, залити підливою (цибуля, морква, томат), тушкувати",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Перець-фарширований.png"
   },
@@ -3630,7 +3630,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/kolorovi-pelmeni-z-kurkoyu-ta-svynynoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "composition": "Борошно в/с, свинина знежилена, філе куряче, цибуля, олія, яйця, буряк, морква, шпинат, сіль, перець",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
@@ -3647,7 +3647,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-myasom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3663,7 +3663,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-domashnim-syrom-ta-vanillyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3679,7 +3679,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-tomlenym-yazykom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3695,7 +3695,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/borsh-chervonij/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розігріти",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Борщ.png"
   },
@@ -3711,7 +3711,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-kopchenoyu-shynkoyu-ta-syrom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3727,7 +3727,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-liverom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3743,7 +3743,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-makom-ta-vishnyami/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3759,7 +3759,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-myasom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3775,7 +3775,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kotleti-zi-svinini/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3791,7 +3791,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hachapuri-z-syrom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -3807,7 +3807,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/zrazy-z-liverom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"
   },
@@ -3828,7 +3828,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-z-rodzynkamy/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "composition": "Сир кисломолочний, борошно в/с, яйця (жовток), родзинки, цукор білий, цукор ванільний",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
@@ -3845,7 +3845,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/syrni-benderyky-z-domashnim-syrom-ta-mocarelloyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3861,7 +3861,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mitboly-z-indychky/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3877,7 +3877,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-soloniym-domashnim-syrom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3893,7 +3893,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/frykadelky/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -3909,7 +3909,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-ta-syrom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3925,7 +3925,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-ta-grybamy/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3941,7 +3941,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-syrom-ta-lohinoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3957,7 +3957,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-brynzoyu-ta-zelennyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -3973,7 +3973,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/linivi-varenyky-po-domashnomu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -3989,7 +3989,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/syrnyky-z-makom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -4005,7 +4005,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/shokoladni-mlynci-z-domashnim-syrom-ta-shokoladom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -4026,7 +4026,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/domashni-sirniki-z-lohinoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "composition": "Сир кисломолочний, борошно в/с, яйця (жовток), лохина с/м, цукор білий, цукор ванільний",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
@@ -4043,7 +4043,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-z-kartopleyu-ta-zelennyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -4059,7 +4059,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-4-syry/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -4075,7 +4075,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hinkali-z-baraninoyu-ta-shidnimi-speciyami/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -4091,7 +4091,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-4-syry/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -4107,7 +4107,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/krokety-kartoplyani/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Kartopliani-zrazy.webp"
   },
@@ -4123,7 +4123,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/nagetsy-kuryachi-v-panirovci-kg/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -4139,7 +4139,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-myasom-lya-bolonyeze/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -4155,7 +4155,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-z-shokoladnoyu-pastoyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -4171,7 +4171,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-vyshneyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -4187,7 +4187,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/chebureky-z-baranynoyu-ta-shidnymy-speciyamy/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Трохи розморозити, смажити на олії з двох боків",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Чебуреки.png"
   },
@@ -4203,7 +4203,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-bananom-ta-shokoladom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   },
@@ -4224,7 +4224,7 @@
    },
    "nutritionSource": "label",
    "url": "https://delivery.samudoma.com.ua/product/mlynci-z-liverom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "composition": "Борошно в/с, серце свинне, легені свинні, сало, молоко, цибуля, яйця, масло вершкове, олія, вода, сіль, перець",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
@@ -4241,7 +4241,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kruchenyky-z-kurcham-ta-bekonom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -4257,7 +4257,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kotlety-zi-svynyny-ta-yalovychyny/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -4273,7 +4273,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/domashni-syrnyky-z-solonoyu-karamellyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити, смажити на олії; або запекти в духовці зі шматочком масла",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/02/Syrnyky.webp"
   },
@@ -4289,7 +4289,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/varenyky-zi-shpynatom-ta-mocareloyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/вареники-солоні.png"
   },
@@ -4305,7 +4305,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hinkali-z-brynzoyu-syrom-tomatami-ta-zelennyu/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -4321,7 +4321,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/lazanya-proshutto-fungi/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -4337,7 +4337,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/hachapuri-z-shynkoyu-ta-syrom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Запікати в духовці",
    "photo": "https://lutsk.samudoma.com.ua/wp-content/uploads/2024/04/Лазанья.png"
   },
@@ -4353,7 +4353,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/pelmeni-z-baranynoyu-ta-shidnymy-speciyami/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Опустити замороженими в киплячу підсолену воду, варити до готовності",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/Пельмені.png"
   },
@@ -4369,7 +4369,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/kruchenyky-zi-svynynoyu-ta-grybamy/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/котлети-загальне-фото_.png"
   },
@@ -4385,7 +4385,7 @@
    "nutrition100": null,
    "nutritionSource": "unknown",
    "url": "https://delivery.samudoma.com.ua/product/mlinci-shpinatni-z-krem-syrom/",
-   "priceCheckedAt": "2026-09-03",
+   "priceCheckedAt": "2026-09-05",
    "cooking": "Розморозити при кімнатній температурі, смажити на олії на невеликому вогні",
    "photo": "https://delivery.samudoma.com.ua/wp-content/uploads/2024/04/млинці-солоні_.png"
   }
